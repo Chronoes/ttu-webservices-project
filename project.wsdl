@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+	xmlns:tns="http://new.webservice.namespace"
+	targetNamespace="http://new.webservice.namespace">
+	<wsdl:types>
+		<xs:schema  targetNamespace="http://new.webservice.namespace" elementFormDefault="qualified">
+			<xs:simpleType name="TypeOfMediaType">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="book" />
+					<xs:enumeration value="movie" />
+					<xs:enumeration value="music" />
+					<xs:enumeration value="tv-series" />
+					<xs:enumeration value="other" />
+				</xs:restriction>
+			</xs:simpleType>
+
+			<xs:simpleType name="RatingType">
+				<xs:restriction base="xs:decimal">
+					<xs:fractionDigits value="1" />
+					<xs:minInclusive value="0.0" />
+					<xs:maxInclusive value="100.0" />
+				</xs:restriction>
+			</xs:simpleType>
+
+			<xs:complexType name="GenreShortType">
+				<xs:choice>
+					<xs:element name="id" type="xs:integer" />
+					<xs:element name="name" type="xs:string" />
+				</xs:choice>
+			</xs:complexType>
+
+			<xs:complexType name="GenreType">
+				<xs:sequence>
+					<xs:element minOccurs="1" maxOccurs="1" name="genreId" type="xs:integer" />
+					<xs:element minOccurs="1" maxOccurs="1" name="name" type="xs:string" />
+					<xs:element minOccurs="1" maxOccurs="1" name="createdAt" type="xs:dateTime" />
+					<xs:element minOccurs="0" maxOccurs="1" name="description" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:complexType name="MediaType">
+				<xs:sequence>
+					<xs:element minOccurs="1" maxOccurs="1" name="mediaId" type="xs:integer" />
+					<xs:element minOccurs="1" maxOccurs="1" name="name" type="xs:string" />
+					<xs:element minOccurs="1" maxOccurs="1" name="type" type="tns:TypeOfMediaType" />
+					<xs:element minOccurs="1" maxOccurs="1" name="genres">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element minOccurs="1" maxOccurs="5" name="genre" type="tns:GenreShortType" />
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element minOccurs="1" maxOccurs="1" name="aggregateRating" type="tns:RatingType" />
+					<xs:element minOccurs="0" maxOccurs="1" name="description" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:element name="NewInputElement">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="1" maxOccurs="1" name="NewInputElementName" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="NewOutputElement">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="1" maxOccurs="1" name="NewOutputElementName" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="NewMessageRequest">
+		<wsdl:part name="parameter" element="tns:NewInputElement"/>
+	</wsdl:message>
+	<wsdl:message name="NewMessageResponse">
+		<wsdl:part name="parameter" element="tns:NewOutputElement"/>
+	</wsdl:message>
+	<wsdl:portType name="NewPortType">
+		<wsdl:operation name="NewOperation">
+			<wsdl:input message="tns:NewMessageRequest"/>
+			<wsdl:output message="tns:NewMessageResponse"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="NewBinding" type="tns:NewPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="NewOperation">
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="NewService">
+		<wsdl:port name="NewPort" binding="tns:NewBinding">
+			<soap:address location="Empty"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
