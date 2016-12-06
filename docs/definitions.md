@@ -1,4 +1,4 @@
-# Project - Media and genres
+# Definitions
 
 ## Genres
 
@@ -22,10 +22,11 @@ _______________________________________
 
 ## Media
 
+Attribute: media type
+
 ### Parameters
 * id
 * name
-* type
 * description
 * genres
 * aggregate rating
