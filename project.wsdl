@@ -5,26 +5,138 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
     xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-    xmlns:tns="http://new.webservice.namespace"
-    targetNamespace="http://new.webservice.namespace">
+    xmlns:tns="http://www.ttu.ee/idu0075/143076/MediaService/1.0"
+    targetNamespace="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
 
-    <wsdl:import namespace="http://new.webservice.namespace" location="./project.xsd"/>
+    <wsdl:import namespace="http://www.ttu.ee/idu0075/143076/MediaService/1.0" location="./project.xsd"/>
 
-    <wsdl:message name="NewMessageRequest">
-        <wsdl:part name="parameter" element="tns:NewInputElement"/>
+    <wsdl:message name="GetGenreByIdOrNameRequest">
+        <wsdl:part name="parameter" element="tns:getGenreByIdOrNameRequest"/>
     </wsdl:message>
-    <wsdl:message name="NewMessageResponse">
-        <wsdl:part name="parameter" element="tns:NewOutputElement"/>
+    <wsdl:message name="GetGenreByIdOrNameResponse">
+        <wsdl:part name="parameter" element="tns:getGenreByIdOrNameResponse"/>
     </wsdl:message>
-    <wsdl:portType name="NewPortType">
-        <wsdl:operation name="NewOperation">
-            <wsdl:input message="tns:NewMessageRequest"/>
-            <wsdl:output message="tns:NewMessageResponse"/>
+
+    <wsdl:message name="AddNewGenreRequest">
+        <wsdl:part name="parameter" element="tns:addNewGenreRequest"/>
+    </wsdl:message>
+    <wsdl:message name="AddNewGenreResponse">
+        <wsdl:part name="parameter" element="tns:addNewGenreResponse"/>
+    </wsdl:message>
+
+    <wsdl:message name="EditGenreRequest">
+        <wsdl:part name="parameter" element="tns:editGenreRequest"/>
+    </wsdl:message>
+    <wsdl:message name="EditGenreResponse">
+        <wsdl:part name="parameter" element="tns:editGenreResponse"/>
+    </wsdl:message>
+
+    <wsdl:message name="GetAllGenresRequest">
+        <wsdl:part name="parameter" element="tns:getAllGenresRequest"/>
+    </wsdl:message>
+    <wsdl:message name="GetAllGenresResponse">
+        <wsdl:part name="parameter" element="tns:getAllGenresResponse"/>
+    </wsdl:message>
+
+    <wsdl:message name="GetMediaByIdRequest">
+        <wsdl:part name="parameter" element="tns:getMediaByIdRequest"/>
+    </wsdl:message>
+    <wsdl:message name="GetMediaByIdResponse">
+        <wsdl:part name="parameter" element="tns:getMediaByIdResponse"/>
+    </wsdl:message>
+
+    <wsdl:message name="AddNewMediaRequest">
+        <wsdl:part name="parameter" element="tns:addNewMediaRequest"/>
+    </wsdl:message>
+    <wsdl:message name="AddNewMediaResponse">
+        <wsdl:part name="parameter" element="tns:addNewMediaResponse"/>
+    </wsdl:message>
+
+    <wsdl:message name="AddMediaRatingRequest">
+        <wsdl:part name="parameter" element="tns:addMediaRatingRequest"/>
+    </wsdl:message>
+    <wsdl:message name="AddMediaRatingResponse">
+        <wsdl:part name="parameter" element="tns:addMediaRatingResponse"/>
+    </wsdl:message>
+
+    <wsdl:message name="EditMediaRequest">
+        <wsdl:part name="parameter" element="tns:editMediaRequest"/>
+    </wsdl:message>
+    <wsdl:message name="EditMediaResponse">
+        <wsdl:part name="parameter" element="tns:editMediaResponse"/>
+    </wsdl:message>
+
+    <wsdl:message name="GetMediaByGenreRequest">
+        <wsdl:part name="parameter" element="tns:getMediaByGenreRequest"/>
+    </wsdl:message>
+    <wsdl:message name="GetMediaByGenreResponse">
+        <wsdl:part name="parameter" element="tns:getMediaByGenreResponse"/>
+    </wsdl:message>
+
+    <wsdl:message name="GetAllMediaRequest">
+        <wsdl:part name="parameter" element="tns:getAllMediaRequest"/>
+    </wsdl:message>
+    <wsdl:message name="GetAllMediaResponse">
+        <wsdl:part name="parameter" element="tns:getAllMediaResponse"/>
+    </wsdl:message>
+
+    <wsdl:portType name="MediaPortType">
+
+        <wsdl:operation name="GetGenreByIdOrName">
+            <wsdl:input message="tns:GetGenreByIdOrNameRequest"/>
+            <wsdl:output message="tns:GetGenreByIdOrNameResponse"/>
         </wsdl:operation>
+
+        <wsdl:operation name="AddNewGenre">
+            <wsdl:input message="tns:AddNewGenreRequest"/>
+            <wsdl:output message="tns:AddNewGenreResponse"/>
+        </wsdl:operation>
+
+        <wsdl:operation name="EditGenre">
+            <wsdl:input message="tns:EditGenreRequest"/>
+            <wsdl:output message="tns:EditGenreResponse"/>
+        </wsdl:operation>
+
+        <wsdl:operation name="GetAllGenres">
+            <wsdl:input message="tns:GetAllGenresRequest"/>
+            <wsdl:output message="tns:GetAllGenresResponse"/>
+        </wsdl:operation>
+
+        <wsdl:operation name="GetMediaById">
+            <wsdl:input message="tns:GetMediaByIdRequest"/>
+            <wsdl:output message="tns:GetMediaByIdResponse"/>
+        </wsdl:operation>
+
+        <wsdl:operation name="AddNewMedia">
+            <wsdl:input message="tns:AddNewMediaRequest"/>
+            <wsdl:output message="tns:AddNewMediaResponse"/>
+        </wsdl:operation>
+
+        <wsdl:operation name="AddMediaRating">
+            <wsdl:input message="tns:AddMediaRatingRequest"/>
+            <wsdl:output message="tns:AddMediaRatingResponse"/>
+        </wsdl:operation>
+
+        <wsdl:operation name="EditMedia">
+            <wsdl:input message="tns:EditMediaRequest"/>
+            <wsdl:output message="tns:EditMediaResponse"/>
+        </wsdl:operation>
+
+        <wsdl:operation name="GetMediaByGenre">
+            <wsdl:input message="tns:GetMediaByGenreRequest"/>
+            <wsdl:output message="tns:GetMediaByGenreResponse"/>
+        </wsdl:operation>
+
+        <wsdl:operation name="GetAllMedia">
+            <wsdl:input message="tns:GetAllMediaRequest"/>
+            <wsdl:output message="tns:GetAllMediaResponse"/>
+        </wsdl:operation>
+
     </wsdl:portType>
-    <wsdl:binding name="NewBinding" type="tns:NewPortType">
+    <wsdl:binding name="MediaBinding" type="tns:MediaPortType">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-        <wsdl:operation name="NewOperation">
+
+        <wsdl:operation name="GetGenreByIdOrName">
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -32,9 +144,91 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
+
+        <wsdl:operation name="AddNewGenre">
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="EditGenre">
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="GetAllGenres">
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="GetMediaById">
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="AddNewMedia">
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="AddMediaRating">
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="EditMedia">
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="GetMediaByGenre">
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="GetAllMedia">
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
     </wsdl:binding>
-    <wsdl:service name="NewService">
-        <wsdl:port name="NewPort" binding="tns:NewBinding">
+    <wsdl:service name="MediaService">
+        <wsdl:port name="MediaPort" binding="tns:MediaBinding">
             <soap:address location="Empty"/>
         </wsdl:port>
     </wsdl:service>

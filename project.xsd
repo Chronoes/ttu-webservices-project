@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:tns="http://new.webservice.namespace"
-    targetNamespace="http://new.webservice.namespace"
+    xmlns:tns="http://www.ttu.ee/idu0075/143076/MediaService/1.0"
+    targetNamespace="http://www.ttu.ee/idu0075/143076/MediaService/1.0"
     elementFormDefault="qualified">
 
     <!-- Types used in operations -->
@@ -57,7 +57,7 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="1" maxOccurs="1" name="aggregateRating" type="tns:RatingType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="aggregateRating" type="tns:RatingType" />
             <xs:element minOccurs="0" maxOccurs="1" name="description" type="xs:string" />
         </xs:sequence>
         <xs:attribute name="type" type="tns:TypeOfMediaType" use="required" />
@@ -121,7 +121,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element minOccurs="1" maxOccurs="1" name="API_TOKEN" type="tns:TokenType" />
-                <xs:element minOccurs="1" maxOccurs="1" name="filters">
+                <xs:element minOccurs="0" maxOccurs="1" name="filters">
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element minOccurs="0" maxOccurs="1" name="createdBefore" type="xs:dateTime" />
@@ -252,7 +252,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element minOccurs="1" maxOccurs="1" name="API_TOKEN" type="tns:TokenType" />
-                <xs:element minOccurs="1" maxOccurs="1" name="filters">
+                <xs:element minOccurs="0" maxOccurs="1" name="filters">
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element minOccurs="0" maxOccurs="1" name="type" type="tns:TypeOfMediaType" />
