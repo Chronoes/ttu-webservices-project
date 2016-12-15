@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/home/chronoes/Progaming/ttu-webservices/project/project.wsdl" uri="src/conf/xml-resources/web-services/MediaService/wsdl/project.wsdl"/>
+    <system systemId="file:/home/chronoes/Progaming/ttu-webservices/project/project.xsd" uri="src/conf/xml-resources/web-services/MediaService/wsdl/project.xsd"/>
+</catalog>
