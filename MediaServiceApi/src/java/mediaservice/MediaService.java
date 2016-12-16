@@ -5,6 +5,7 @@
  */
 package mediaservice;
 
+import mediaservice.types.TokenType;
 import ee.ttu.idu0075._143076.mediaservice._1.*;
 import java.util.stream.Collectors;
 import javax.jws.WebService;
@@ -15,20 +16,22 @@ import javax.jws.WebService;
  */
 @WebService(serviceName = "MediaService", portName = "MediaPort", endpointInterface = "ee.ttu.idu0075._143076.mediaservice._1.MediaPortType", targetNamespace = "http://www.ttu.ee/idu0075/143076/MediaService/1.0", wsdlLocation = "WEB-INF/wsdl/MediaService/project.wsdl")
 public class MediaService {
-    private final TokenType API_TOKEN = new TokenType("realToken123");
-    private final TokenType API_TEST_TOKEN = new TokenType("TESTTOKEN");
+    private static final TokenType API_TOKEN = new TokenType("realToken123");
+    private static final TokenType API_TEST_TOKEN = new TokenType("TESTTOKEN");
     // Reference to current database
     private MockDatabase db;
-    private final MockDatabase realDb = new MockDatabase();
-    private final MockDatabase testDb = new MockDatabase();
-    private final ClientManager clientManager = new ClientManager(10);
+    private static final MockDatabase realDb = new MockDatabase();
+    private static final MockDatabase testDb = new MockDatabase().fillDatabase();
+    private static final ClientManager clientManager = new ClientManager(10);
 
     public MediaService() {
-        testDb.fillDatabase();
         db = realDb;
     }
     
     private boolean validateToken(String token) {
+        if (token == null) {
+            throw new IllegalArgumentException("Missing required token");
+        }
         TokenType t = new TokenType(token);
         if (t.equals(API_TOKEN)) {
             db = realDb;

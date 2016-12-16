@@ -1,0 +1,527 @@
+swagger: '2.0'
+info:
+  title: MediaService API
+  description: Good things happen here
+  version: "1.0.0"
+host: 'localhost:8080'
+schemes:
+  - http
+basePath: /MediaServiceApi/webresources
+produces:
+  - application/json
+  - text/html
+security: 
+  - token: []
+paths:
+  /genre:
+    get:
+      summary: Get Genre
+      description: |
+        This Genre endpoint returns a genre when given an
+        ID or name of genre. At least one of these parameters
+        is required.
+      parameters:
+        - $ref: '#/parameters/genreId'
+        - $ref: '#/parameters/genreName'
+      tags:
+        - Genre
+        - Lookup
+      responses:
+        200:
+          description: Found Genre object
+          schema:
+            type: object
+            properties:
+              genre:
+                $ref: '#/definitions/Genre'
+          examples:
+            json:
+              genre:
+                genreId: 4
+                name: Swagger
+                description: null
+                createdAt: 1481930449748
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Add new Genre
+      description: |
+        This Genre endpoint creates a new genre when given 
+        appopriate parameters. createdAt is not used on request.
+      parameters:
+        - $ref: '#/parameters/clientId'
+        - $ref: '#/parameters/genre'
+      tags:
+        - Genre
+        - Modify
+      responses:
+        200:
+          description: New Genre object
+          schema:
+            type: object
+            properties:
+              clientId:
+                type: string
+              genre:
+                $ref: '#/definitions/Genre'
+          examples:
+            json:
+              clientId: rieajrf29
+              genre:
+                genreId: 82
+                name: Dubstep
+                description: wub wub
+                createdAt: 1461930449748
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    put:
+      summary: Edit Genre
+      description: |
+        This Genre endpoint edits an existing genre when given 
+        appopriate parameters. createdAt is not used on request.
+      parameters:
+        - $ref: '#/parameters/clientId'
+        - $ref: '#/parameters/genre'
+      tags:
+        - Genre
+        - Modify
+      responses:
+        200:
+          description: Edited Genre object
+          schema:
+            type: object
+            properties:
+              clientId:
+                type: string
+              genre:
+                $ref: '#/definitions/Genre'
+          examples:
+            json:
+              clientId: i592urw23
+              genre:
+                genreId: 23
+                name: Dragons
+                description: There be
+                createdAt: 1473923023001
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /genre/list:
+    get:
+      summary: Get all Genres
+      description: |
+        This endpoint provides the ability to search for all Genres
+        with optional filters, such as querying by creation date.
+      parameters:
+        - name: createdBefore
+          in: query
+          description: Filter Genres created before this datetime.
+          required: false
+          type: string
+          format: 'YYYY-MM-DDThh:mm:ss+00:00'
+        - name: createdAfter
+          in: query
+          description: Filter Genres created after this datetime
+          required: false
+          type: string
+          format: 'YYYY-MM-DDThh:mm:ss+00:00'
+      tags:
+        - Genre
+        - Lookup
+      responses:
+        200:
+          description: An array of Genres
+          schema:
+            type: object
+            properties:
+              genres:
+                type: object
+                properties:
+                  genre:
+                    type: array
+                    items:
+                      $ref: '#/definitions/Genre'
+          examples:
+            json:
+              genres:
+                genre:
+                  - genreId: 23
+                    name: Dragons
+                    description: There be
+                    createdAt: 1473923023001
+                  - genreId: 82
+                    name: Dubstep
+                    description: wub wub
+                    createdAt: 1461930449748
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /media:
+    get:
+      summary: Get Media
+      description: |
+        This Media endpoint returns a media when given an
+        unique ID.
+      parameters:
+        - $ref: '#/parameters/mediaId'
+      tags:
+        - Media
+        - Lookup
+      responses:
+        200:
+          description: Found Media object
+          schema:
+            type: object
+            properties:
+              media:
+                $ref: '#/definitions/Media'
+          examples:
+            json:
+              media:
+                mediaId: 82
+                type: BOOK
+                name: Dubstep
+                description: null
+                genres:
+                  - id: 2
+                    name: null
+                  - id: 5
+                    name: null
+                aggregateRating: 66.6
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Add new Media
+      description: |
+        This Media endpoint creates a new media when given 
+        appopriate parameters.
+      parameters:
+        - $ref: '#/parameters/clientId'
+        - $ref: '#/parameters/media'
+      tags:
+        - Media
+        - Modify
+      responses:
+        200:
+          description: New Media object
+          schema:
+            type: object
+            properties:
+              clientId:
+                type: string
+              media:
+                $ref: '#/definitions/Media'
+          examples:
+            json:
+              clientId: keo332u29us
+              media:
+                mediaId: 82
+                type: BOOK
+                name: Dubstep
+                description: null
+                genres:
+                  - id: 2
+                    name: null
+                  - id: 5
+                    name: null
+                aggregateRating: 66.6
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    put:
+      summary: Edit Media
+      description: |
+        This Media endpoint edits an existing media when given 
+        appopriate parameters.
+      parameters:
+        - $ref: '#/parameters/clientId'
+        - $ref: '#/parameters/media'
+      tags:
+        - Media
+        - Modify
+      responses:
+        200:
+          description: Edited Genre object
+          schema:
+            type: object
+            properties:
+              clientId:
+                type: string
+              media:
+                $ref: '#/definitions/Media'
+          examples:
+            json:
+              clientId: 2j19jediszd9
+              media:
+                mediaId: 82
+                type: BOOK
+                name: Dubstep
+                description: null
+                genres:
+                  - id: 2
+                    name: null
+                  - id: 5
+                    name: null
+                aggregateRating: 66.6
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /media/list:
+    get:
+      summary: Get all Genres
+      description: |
+        This endpoint provides the ability to search for all Media
+        with optional filters, such as querying by type, keywords etc.
+      parameters:
+        - name: type
+          in: query
+          description: Filter Media by type
+          required: false
+          type: string
+          format: MediaType
+          enum:
+            - BOOK
+            - MOVIE
+            - MUSIC
+            - TV_SERIES
+            - OTHER
+        - name: genreId
+          in: query
+          description: Filter Media by Genre IDs 
+          required: false
+          type: array
+          items:
+            type: integer
+        - name: genreName
+          in: query
+          description: Filter Media by Genre names 
+          required: false
+          type: array
+          items:
+            type: string
+        - name: ratingLessThan
+          in: query
+          description: Filter Media by ratings lower than this
+          required: false
+          type: number
+          format: Rating
+          minimum: 0.0
+          maximum: 100.0
+        - name: ratingMoreThan
+          in: query
+          description: Filter Media by ratings higher than this
+          required: false
+          type: number
+          format: Rating
+          minimum: 0.0
+          maximum: 100.0
+      tags:
+        - Media
+        - Lookup
+      responses:
+        200:
+          description: An array of Media
+          schema:
+            type: object
+            properties:
+              media:
+                type: object
+                properties:
+                  media:
+                    type: array
+                    items:
+                      $ref: '#/definitions/Media'
+          examples:
+            json:
+              media:
+                media:
+                  - mediaId: 82
+                    type: BOOK
+                    name: Dubstep
+                    description: null
+                    genres:
+                      - id: 2
+                        name: null
+                      - id: 5
+                        name: null
+                    aggregateRating: 66.6
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /media/list/byGenre:
+    get:
+      summary: Get Media by Genre
+      description: |
+        This endpoint provides the ability to search for all Media
+        associated by a Genre.
+      parameters:
+        - $ref: '#/parameters/genreId'
+        - $ref: '#/parameters/genreName'
+      tags:
+        - Media
+        - Lookup
+      responses:
+        200:
+          description: An array of Media
+          schema:
+            type: object
+            properties:
+              media:
+                type: object
+                properties:
+                  media:
+                    type: array
+                    items:
+                      $ref: '#/definitions/Media'
+          examples:
+            json:
+              media:
+                media:
+                  - mediaId: 82
+                    type: BOOK
+                    name: Dubstep
+                    description: null
+                    genres:
+                      - id: 2
+                        name: null
+                      - id: 5
+                        name: null
+                    aggregateRating: 66.
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  Genre:
+    type: object
+    required:
+      - genreId
+      - name
+    properties:
+      genreId:
+        type: integer
+        description: Unique identifier of the genre
+      name:
+        type: string
+        description: Name of genre.
+      description:
+        type: string
+        description: Description of genre.
+      createdAt:
+        type: integer
+        format: unix-time
+        description: Unix time when genre was created.
+  GenreShort:
+    type: object
+    minProperties: 1
+    properties:
+      id:
+        type: integer
+        description: Unique identifier of the genre
+      name:
+        type: string
+        description: Name of genre.
+  Rating:
+    type: number
+    format: float
+    minimum: 0.0
+    maximum: 100.0
+  MediaType:
+    type: string
+    description: An enumeration of media types
+    enum:
+      - BOOK
+      - MOVIE
+      - MUSIC
+      - TV_SERIES
+      - OTHER
+  MediaGenres:
+    type: array
+    items:
+      $ref: '#/definitions/GenreShort'
+    minItems: 1
+    maxItems: 5
+  Media:
+    type: object
+    required:
+      - mediaId
+      - type
+      - name
+      - genres
+    properties:
+      mediaId:
+        type: integer
+        description: Unique identifier of the media
+      type:
+        $ref: '#/definitions/MediaType'
+      name:
+        type: string
+        description: Name of the media
+      description:
+        type: string
+        description: Description of the media.
+      genres:
+        $ref: '#/definitions/MediaGenres'
+      aggregateRating:
+        $ref: '#/definitions/Rating'
+      
+  Error:
+    description: Error on failure
+securityDefinitions:
+  token:
+    type: apiKey
+    name: token
+    in: query
+    description: API token for authorization
+parameters:
+  genreId:
+    name: id
+    in: query
+    description: ID of a genre
+    required: false
+    type: number
+    format: integer
+  genreName:
+    name: name
+    in: query
+    description: Full name of a genre
+    required: false
+    type: string
+  mediaId:
+    name: id
+    in: query
+    description: ID of a media object
+    required: true
+    type: integer
+  genre:
+    name: genre
+    in: body
+    description: Genre object
+    required: true
+    schema:
+      $ref: '#/definitions/Genre'
+  media:
+    name: media
+    in: body
+    description: Media object
+    required: true
+    schema:
+      $ref: '#/definitions/Media'
+  clientId:
+    name: clientId
+    in: query
+    description: Client ID, generated client-side
+    required: true
+    type: string
+    pattern: /^[A-Za-z0-9]{8,16}$/

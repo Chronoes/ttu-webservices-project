@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mediaservice;
+package mediaservice.types;
 
-import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -13,25 +12,23 @@ import java.util.regex.Pattern;
  *
  * @author chronoes
  */
-class TokenType implements CustomType<String> {
-    private static Pattern pattern = Pattern.compile("^[A-Za-z0-9]{8,16}$");
-    private String value;
+public class TokenType implements CustomType<String> {
+    protected static Pattern pattern = Pattern.compile("^[A-Za-z0-9]{8,16}$");
+    protected String value;
 
-    @Override
     public String getValue() {
         return value;
     }
 
-    @Override
     public void setValue(String value) throws IllegalArgumentException {
         if (validate(value)) {
            this.value = value;
         }
     }
 
-    TokenType() {}
+    public TokenType() {}
     
-    TokenType(String value) {
+    public TokenType(String value) {
         setValue(value);
     }
 

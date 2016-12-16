@@ -3,15 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mediaservice;
+package mediaservice.types;
 
 /**
  *
  * @author chronoes
  */
 interface CustomType<T> {
-    T getValue();
-    void setValue(T value);
     boolean validate();
     boolean validate(T value);
 }

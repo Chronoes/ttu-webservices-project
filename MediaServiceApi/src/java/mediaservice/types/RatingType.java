@@ -3,21 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mediaservice;
+package mediaservice.types;
 
+import mediaservice.types.CustomType;
 import java.math.BigDecimal;
 
 /**
  *
  * @author chronoes
  */
-class RatingType implements CustomType<BigDecimal> {
-    private BigDecimal value;
+public class RatingType implements CustomType<BigDecimal> {
+    protected BigDecimal rating;
     
-    RatingType() {}
+    public RatingType() {}
     
-    RatingType(BigDecimal value) {
-        setValue(value);
+    public RatingType(BigDecimal value) {
+        setRating(value);
     }
     
     @Override
@@ -30,18 +31,16 @@ class RatingType implements CustomType<BigDecimal> {
     
     @Override
     public boolean validate() {
-        return validate(value);
+        return validate(rating);
     }
 
-    @Override
-    public BigDecimal getValue() {
-        return value;
+    public BigDecimal getRating() {
+        return rating;
     }
 
-    @Override
-    public void setValue(BigDecimal value) {
+    public void setRating(BigDecimal value) {
         if (validate(value)) {
-            this.value = value;        
+            this.rating = value;        
         }
     }
 

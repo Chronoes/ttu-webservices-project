@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mediaservice;
+package mediaservice.types;
 
+import mediaservice.types.TokenType;
 import java.util.Calendar;
 
 /**
@@ -12,10 +13,10 @@ import java.util.Calendar;
  * @author chronoes
  */
 public class ClientIdType extends TokenType implements Comparable<ClientIdType> {
-    private final Calendar createdAt = Calendar.getInstance();
+    protected final Calendar createdAt = Calendar.getInstance();
     
     
-    ClientIdType(String value) {
+    public ClientIdType(String value) {
         super(value);
     }
     

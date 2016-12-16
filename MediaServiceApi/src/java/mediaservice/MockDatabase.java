@@ -5,6 +5,7 @@
  */
 package mediaservice;
 
+import mediaservice.types.RatingType;
 import ee.ttu.idu0075._143076.mediaservice._1.GenreShortType;
 import ee.ttu.idu0075._143076.mediaservice._1.GenreType;
 import ee.ttu.idu0075._143076.mediaservice._1.GetAllGenresRequest;
@@ -43,7 +44,7 @@ class MockDatabase {
         return mediaSequence;
     }
     
-    void fillDatabase() {
+    MockDatabase fillDatabase() {
         List<GenreShortType> genres = new ArrayList();
         genres.add(addGenre("Action", "Things happen here explosively").getShortType());
         genres.add(addGenre("Adventure", "Things happen here progressively").getShortType());
@@ -72,6 +73,8 @@ class MockDatabase {
         specificGenres.add(genres.get(4));
         addMedia(TypeOfMediaType.MUSIC, "Claude Debussy - Clair de Lune", "A most beautiful melodical impressionist piece https://www.youtube.com/watch?v=CvFH_6DNRCY", specificGenres);
         specificGenres.clear();
+        
+        return this;
     }
     
     Genre addGenre(String name, String description) {
@@ -186,10 +189,12 @@ class MockDatabase {
                     }
                     
                     if (include && filters.getRatingLessThan() != null) {
-                        include = filters.getRatingLessThan().compareTo(currentMedia.getAggregateRating()) > 0;
+                        include = currentMedia.getAggregateRating() == null || 
+                                filters.getRatingLessThan().compareTo(currentMedia.getAggregateRating()) > 0;
                     }
                     if (include && filters.getRatingMoreThan() != null) {
-                        include = filters.getRatingMoreThan().compareTo(currentMedia.getAggregateRating()) < 0;
+                        include = currentMedia.getAggregateRating() == null ||
+                                filters.getRatingMoreThan().compareTo(currentMedia.getAggregateRating()) < 0;
                     }
                     
                     if (include && filters.getGenres() != null) {

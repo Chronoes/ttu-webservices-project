@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package mediaservice;
+import mediaservice.types.RatingType;
 import ee.ttu.idu0075._143076.mediaservice._1.GenreShortType;
 import ee.ttu.idu0075._143076.mediaservice._1.MediaType;
 import ee.ttu.idu0075._143076.mediaservice._1.TypeOfMediaType;
@@ -32,7 +33,7 @@ class Media extends MediaType {
         ratings.add(rating);
         
         Optional<BigDecimal> optRating = ratings.stream()
-                .map(RatingType::getValue)
+                .map(RatingType::getRating)
                 .reduce(BigDecimal::add);
         if (optRating.isPresent()) {
             aggregateRating = optRating.get().divide(BigDecimal.valueOf(ratings.size()), RoundingMode.HALF_UP).setScale(1);
