@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="54123936-1e09-457a-8264-bbcfe08a3301" activeEnvironment="Default" name="media" resourceRoot="${projectDir}" soapui-version="5.2.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="655a4b13-b84b-4cd3-a38d-cc231bce8ba6" wsaVersion="NONE" name="MediaBinding" type="wsdl" bindingName="{http://www.ttu.ee/idu0075/143076/MediaService/1.0}MediaBinding" soapVersion="1_1" anonymous="optional" definition="project.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/home/chronoes/Progaming/ttu-webservices/project/project.wsdl"><con:part><con:url>file:/home/chronoes/Progaming/ttu-webservices/project/project.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.ttu.ee/idu0075/143076/MediaService/1.0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
-  <wsdl:import namespace="http://www.ttu.ee/idu0075/143076/MediaService/1.0" location="./project.xsd"/>
+<con:soapui-project id="54123936-1e09-457a-8264-bbcfe08a3301" activeEnvironment="Default" name="media" resourceRoot="${projectDir}" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.TestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="TestSuite" value="MediaBinding TestSuite"/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Select Report Type" value=""/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="false"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="TestCase" value="&lt;all>"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Environment" value="Default"/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="false"/>
+</xml-fragment>]]></con:setting></con:settings><con:interface xsi:type="con:WsdlInterface" id="f7f86bb5-9c09-40f5-940e-205c4cd4201e" wsaVersion="NONE" name="MediaBinding" type="wsdl" bindingName="{http://www.ttu.ee/idu0075/143076/MediaService/1.0}MediaBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/MediaServiceApi/MediaService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/MediaServiceApi/MediaService?wsdl"><con:part><con:url>http://localhost:8080/MediaServiceApi/MediaService?wsdl</con:url><con:content><![CDATA[<!--Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown.-->
+<wsdl:definitions targetNamespace="http://www.ttu.ee/idu0075/143076/MediaService/1.0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.ttu.ee/idu0075/143076/MediaService/1.0" elementFormDefault="qualified" xmlns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
+      <xs:import namespace="http://www.ttu.ee/idu0075/143076/MediaService/1.0" schemaLocation="http://localhost:8080/MediaServiceApi/MediaService?xsd=1"/>
+    </xs:schema>
+  </wsdl:types>
   <wsdl:message name="GetGenreByIdOrNameRequest">
     <wsdl:part name="parameter" element="tns:getGenreByIdOrNameRequest"/>
   </wsdl:message>
@@ -188,10 +224,11 @@
   </wsdl:binding>
   <wsdl:service name="MediaService">
     <wsdl:port name="MediaPort" binding="tns:MediaBinding">
-      <soap:address location="Empty"/>
+      <soap:address location="http://localhost:8080/MediaServiceApi/MediaService"/>
     </wsdl:port>
   </wsdl:service>
-</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>file:/home/chronoes/Progaming/ttu-webservices/project/project.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.ttu.ee/idu0075/143076/MediaService/1.0" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8080/MediaServiceApi/MediaService?xsd=1</con:url><con:content><![CDATA[<!--Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown.-->
+<xs:schema targetNamespace="http://www.ttu.ee/idu0075/143076/MediaService/1.0" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
   <!--Types used in operations-->
   <xs:simpleType name="TokenType">
     <xs:restriction base="xs:string">
@@ -344,6 +381,7 @@
       <xs:sequence>
         <xs:element minOccurs="1" maxOccurs="1" name="API_TOKEN" type="tns:TokenType"/>
         <xs:element minOccurs="1" maxOccurs="1" name="clientId" type="tns:TokenType"/>
+        <xs:element minOccurs="1" maxOccurs="1" name="type" type="tns:TypeOfMediaType"/>
         <xs:element minOccurs="1" maxOccurs="1" name="name" type="xs:string"/>
         <xs:element minOccurs="0" maxOccurs="1" name="description" type="xs:string"/>
         <xs:element minOccurs="1" maxOccurs="1" name="genres">
@@ -457,17 +495,17 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>Empty</con:endpoint><con:endpoint>http://127.0.0.1:8088/mockMediaBinding</con:endpoint></con:endpoints><con:operation id="da0c7dfe-8451-4e00-b69b-fdf65b61df06" isOneWay="false" action="" name="AddMediaRating" bindingOperationName="AddMediaRating" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="882d58be-b55e-4107-8dee-e4a21c8f1cc8" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:8088/mockMediaBinding</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/MediaServiceApi/MediaService</con:endpoint></con:endpoints><con:operation id="ded27425-ea5a-4962-9d5d-6667a4f19a7e" isOneWay="false" action="" name="AddMediaRating" bindingOperationName="AddMediaRating" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="039209ea-f948-4c1b-a08a-e0392d46019d" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/MediaServiceApi/MediaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
       <ns:addMediaRatingRequest>
-         <ns:API_TOKEN>TESTTOKEN</ns:API_TOKEN>
-         <ns:clientId>332r3gtr3</ns:clientId>
+         <ns:API_TOKEN>?</ns:API_TOKEN>
+         <ns:clientId>?</ns:clientId>
          <ns:mediaId>?</ns:mediaId>
          <ns:rating>?</ns:rating>
       </ns:addMediaRatingRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/AddMediaRatingRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="b6a0c545-a1c9-429e-ac55-cb38ca031479" isOneWay="false" action="" name="AddNewGenre" bindingOperationName="AddNewGenre" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8153ffaf-ddf3-4fec-ad2c-499cf741c437" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>Empty</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/AddMediaRatingRequest"/></con:call></con:operation><con:operation id="11d8d264-3af6-4742-a1e9-9a6597caafb6" isOneWay="false" action="" name="AddNewGenre" bindingOperationName="AddNewGenre" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="9ae4bf72-8c01-4609-8499-063ccac98bb8" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/MediaServiceApi/MediaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
       <ns:addNewGenreRequest>
@@ -478,26 +516,26 @@
          <ns:description>?</ns:description>
       </ns:addNewGenreRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/AddNewGenreRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="e31ec428-2145-4399-98ef-08ac1eb6a900" isOneWay="false" action="" name="AddNewMedia" bindingOperationName="AddNewMedia" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="461db892-5403-4653-8b42-16d73598b26d" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>Empty</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/AddNewGenreRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="5e0cfab7-bc3d-4595-bfb2-a86a77a6d5bb" isOneWay="false" action="" name="AddNewMedia" bindingOperationName="AddNewMedia" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0c07e754-1d0c-41c9-b8e2-0d89de4f6b03" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/MediaServiceApi/MediaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
       <ns:addNewMediaRequest>
-         <ns:API_TOKEN>?</ns:API_TOKEN>
-         <ns:clientId>?</ns:clientId>
-         <ns:name>?</ns:name>
+         <ns:API_TOKEN>TESTTOKEN</ns:API_TOKEN>
+         <ns:clientId>r34ej198kem</ns:clientId>
+         <ns:type>movie</ns:type>
+         <ns:name>just another movie here</ns:name>
          <!--Optional:-->
          <ns:description>?</ns:description>
          <ns:genres>
             <!--1 to 5 repetitions:-->
             <ns:genre>
                <!--You have a CHOICE of the next 2 items at this level-->
-               <ns:id>?</ns:id>
-               <ns:name>?</ns:name>
+               <ns:id>2</ns:id>
             </ns:genre>
          </ns:genres>
       </ns:addNewMediaRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/AddNewMediaRequest"/></con:call></con:operation><con:operation id="ee4410d0-639b-48f4-882f-efa310206106" isOneWay="false" action="" name="EditGenre" bindingOperationName="EditGenre" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2a4121fb-a407-4531-8a29-087a3ed8de9e" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>Empty</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/AddNewMediaRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="78c5d67c-97d4-493c-bf1e-2df1b350736d" isOneWay="false" action="" name="EditGenre" bindingOperationName="EditGenre" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="bc61ef1c-7acc-4b50-bd67-5214b89773b3" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/MediaServiceApi/MediaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
       <ns:editGenreRequest>
@@ -513,21 +551,20 @@
          </ns:genre>
       </ns:editGenreRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/EditGenreRequest"/></con:call></con:operation><con:operation id="3af09af3-1d80-4fcd-bda7-e4d941aceac0" isOneWay="false" action="" name="EditMedia" bindingOperationName="EditMedia" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="efd33c3a-1343-46bd-9bbc-7b0fc3a7dafd" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>Empty</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/EditGenreRequest"/></con:call></con:operation><con:operation id="5859fc6c-8843-4658-80af-3ac8431c7f9a" isOneWay="false" action="" name="EditMedia" bindingOperationName="EditMedia" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0bbc0189-447a-4764-80d7-c6afb7447194" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/MediaServiceApi/MediaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
       <ns:editMediaRequest>
-         <ns:API_TOKEN>?</ns:API_TOKEN>
-         <ns:clientId>?</ns:clientId>
-         <ns:media type="?">
-            <ns:mediaId>?</ns:mediaId>
-            <ns:name>?</ns:name>
+         <ns:API_TOKEN>TESTTOKEN</ns:API_TOKEN>
+         <ns:clientId>geaue213925</ns:clientId>
+         <ns:media type="book">
+            <ns:mediaId>5</ns:mediaId>
+            <ns:name>just another something</ns:name>
             <ns:genres>
                <!--1 to 5 repetitions:-->
                <ns:genre>
                   <!--You have a CHOICE of the next 2 items at this level-->
-                  <ns:id>?</ns:id>
-                  <ns:name>?</ns:name>
+                  <ns:name>Action</ns:name>
                </ns:genre>
             </ns:genres>
             <!--Optional:-->
@@ -537,462 +574,196 @@
          </ns:media>
       </ns:editMediaRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/EditMediaRequest"/></con:call></con:operation><con:operation id="35576ea5-7f26-4184-b9d5-d17b052914b6" isOneWay="false" action="" name="GetAllGenres" bindingOperationName="GetAllGenres" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="880adea3-1247-4687-8e63-d31b762bfdd3" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>Empty</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/EditMediaRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="d839a2b8-8d16-4bb3-8ac1-f64480e68963" isOneWay="false" action="" name="GetAllGenres" bindingOperationName="GetAllGenres" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="63257020-6be2-4b1a-8cb5-dad85f2201a2" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/MediaServiceApi/MediaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
       <ns:getAllGenresRequest>
-         <ns:API_TOKEN>?</ns:API_TOKEN>
+         <ns:API_TOKEN>TESTTOKEN</ns:API_TOKEN>
          <!--Optional:-->
          <ns:filters>
             <!--Optional:-->
-            <ns:createdBefore>?</ns:createdBefore>
+            <ns:createdBefore>2016-12-15T23:51:59.012+02:00</ns:createdBefore>
             <!--Optional:-->
-            <ns:createdAfter>?</ns:createdAfter>
+            <ns:createdAfter>2016-12-15T23:46:54.012+02:00</ns:createdAfter>
          </ns:filters>
       </ns:getAllGenresRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/GetAllGenresRequest"/></con:call></con:operation><con:operation id="a38dc9e0-d018-448a-8ed1-e24af7bdd98a" isOneWay="false" action="" name="GetAllMedia" bindingOperationName="GetAllMedia" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="bcb18f98-a75d-446c-91fe-dbcde7dc410e" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>Empty</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/GetAllGenresRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="9fc66129-dd55-4d38-ae03-667fa66f3065" isOneWay="false" action="" name="GetAllMedia" bindingOperationName="GetAllMedia" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4f26b217-8e25-4b46-a241-d52cf96fafc2" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/MediaServiceApi/MediaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
       <ns:getAllMediaRequest>
-         <ns:API_TOKEN>?</ns:API_TOKEN>
+         <ns:API_TOKEN>TESTTOKEN</ns:API_TOKEN>
          <!--Optional:-->
-         <ns:filters>
-            <!--Optional:-->
-            <ns:type>?</ns:type>
-            <!--Optional:-->
-            <ns:keywords>?</ns:keywords>
-            <!--Optional:-->
-            <ns:genres>
-               <!--1 or more repetitions:-->
-               <ns:genre>
-                  <!--You have a CHOICE of the next 2 items at this level-->
-                  <ns:id>?</ns:id>
-                  <ns:name>?</ns:name>
-               </ns:genre>
-            </ns:genres>
-            <!--Optional:-->
-            <ns:ratingLessThan>?</ns:ratingLessThan>
-            <!--Optional:-->
-            <ns:ratingMoreThan>?</ns:ratingMoreThan>
-         </ns:filters>
+         
       </ns:getAllMediaRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/GetAllMediaRequest"/></con:call></con:operation><con:operation id="b1a99f78-3ad5-494c-a5f8-5f4868a8c6f3" isOneWay="false" action="" name="GetGenreByIdOrName" bindingOperationName="GetGenreByIdOrName" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5138a6ce-1824-4ef9-bbe2-afa7a8368792" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>Empty</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/GetAllMediaRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="e6bac8c9-9e1c-412d-8cf9-02140f571508" isOneWay="false" action="" name="GetGenreByIdOrName" bindingOperationName="GetGenreByIdOrName" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2f72607f-c047-4316-88e0-30013219e18e" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/MediaServiceApi/MediaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
       <ns:getGenreByIdOrNameRequest>
-         <ns:API_TOKEN>?</ns:API_TOKEN>
+         <ns:API_TOKEN>TEST_TOKEN</ns:API_TOKEN>
          <ns:genre>
-            <!--You have a CHOICE of the next 2 items at this level-->
-            <ns:id>?</ns:id>
-            <ns:name>?</ns:name>
+            <ns:name>drama</ns:name>
          </ns:genre>
       </ns:getGenreByIdOrNameRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/GetGenreByIdOrNameRequest"/></con:call></con:operation><con:operation id="b3d03613-11e0-4138-8d27-533626039213" isOneWay="false" action="" name="GetMediaByGenre" bindingOperationName="GetMediaByGenre" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2944afaa-84dc-41e3-b4ad-83100d2276ad" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>Empty</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/GetGenreByIdOrNameRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="03e508c0-83c1-494c-a57b-e05db6768cb5" isOneWay="false" action="" name="GetMediaByGenre" bindingOperationName="GetMediaByGenre" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2d09980a-1a7f-4b35-b7ae-c0c4c35eb1d9" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/MediaServiceApi/MediaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
       <ns:getMediaByGenreRequest>
-         <ns:API_TOKEN>?</ns:API_TOKEN>
+         <ns:API_TOKEN>TESTTOKEN</ns:API_TOKEN>
          <ns:genre>
             <!--You have a CHOICE of the next 2 items at this level-->
-            <ns:id>?</ns:id>
-            <ns:name>?</ns:name>
+            <!--<ns:id>2</ns:id>-->
+            <ns:name>romance</ns:name>
          </ns:genre>
       </ns:getMediaByGenreRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/GetMediaByGenreRequest"/></con:call></con:operation><con:operation id="d25bd16c-7b75-4997-924d-496a74ffa67a" isOneWay="false" action="" name="GetMediaById" bindingOperationName="GetMediaById" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a9c1a26a-70de-4b7a-bcb8-d47f754be428" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>Empty</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/GetMediaByGenreRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="a1909c91-2fb2-49ff-abc4-78c6b5a8fb6c" isOneWay="false" action="" name="GetMediaById" bindingOperationName="GetMediaById" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="22a3f999-76f3-4966-b090-8fcf546345d4" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/MediaServiceApi/MediaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
       <ns:getMediaByIdRequest>
-         <ns:API_TOKEN>?</ns:API_TOKEN>
-         <ns:mediaId>?</ns:mediaId>
+         <ns:API_TOKEN>TESTTOKEN</ns:API_TOKEN>
+         <ns:mediaId>6</ns:mediaId>
       </ns:getMediaByIdRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/GetMediaByIdRequest"/></con:call></con:operation></con:interface><con:testSuite id="5e08b0a6-0e21-48be-acc3-a7bd42e5bad3" name="MediaBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="35e2e6fe-97ed-46df-832c-50cfd2e3f1e2" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddMediaRating TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="789f7cea-20f4-47a4-abf7-21e52b0cdacf" name="AddMediaRating"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MediaBinding</con:interface><con:operation>AddMediaRating</con:operation><con:request name="AddMediaRating" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="41f85a1f-ff3f-4f9d-ab44-5c484b26a933"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:8088/mockMediaBinding</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/GetMediaByIdRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="9892855f-1f61-4480-99ec-23c0517e2fb2" name="MediaBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="f750d475-b8b9-4b87-a6ff-c58f17f10ef1" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddMediaRating TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="a5c614c1-4bc2-4a4d-babd-e4929590ed21" name="AddMediaRating"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MediaBinding</con:interface><con:operation>AddMediaRating</con:operation><con:request name="AddMediaRating" id="f856f1e4-914b-4aa5-8cb2-ad3601d14ca0"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/MediaServiceApi/MediaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
       <ns:addMediaRatingRequest>
          <ns:API_TOKEN>TESTTOKEN</ns:API_TOKEN>
-         <ns:clientId>93je39weh2</ns:clientId>
-         <ns:mediaId>3</ns:mediaId>
-         <ns:rating>2</ns:rating>
+         <ns:clientId>mediarating1</ns:clientId>
+         <ns:mediaId>2</ns:mediaId>
+         <ns:rating>60.0</ns:rating>
       </ns:addMediaRatingRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:assertion type="Schema Compliance" id="772d496a-2a9a-4e2c-a110-b123a8fd63b4" name="Schema Compliance"><con:configuration><definition>/home/chronoes/Progaming/ttu-webservices/project/project.wsdl</definition></con:configuration></con:assertion><con:assertion type="XPath Match" id="7945ce9d-dde5-4aba-8ab0-37ac9eb067a3" name="XPath Match"><con:configuration><path>declare namespace ns='http://www.ttu.ee/idu0075/143076/MediaService/1.0';
-//ns:genre/ns:name</path><content>action</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/AddMediaRatingRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="be1e9d83-4c74-4901-83ca-f39a0434354f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddNewGenre TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="78f904e5-684e-4061-9db0-838e65cde6b0" name="AddNewGenre"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MediaBinding</con:interface><con:operation>AddNewGenre</con:operation><con:request name="AddNewGenre" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="40052460-0d6b-4720-9c69-00e4e3bb0a2a"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>Empty</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
+</soapenv:Envelope>]]></con:request><con:assertion type="Schema Compliance" id="5d042bdb-1bda-4058-bb0d-c8061bf065af" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="XPath Match" id="91014f36-855e-41c4-9e14-d5d17016d231" name="XPath Match"><con:configuration><path>//*:aggregateRating</path><content>60.0</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/AddMediaRatingRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="b1ba18c4-4776-4a62-9417-2c47e07be337" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddNewGenre TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="a3a517ab-0188-43c1-bb98-8bbe28ac1b38" name="AddNewGenre"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MediaBinding</con:interface><con:operation>AddNewGenre</con:operation><con:request name="AddNewGenre" id="9986c0a8-3085-4026-9355-a756bf2d413f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/MediaServiceApi/MediaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
       <ns:addNewGenreRequest>
-         <ns:API_TOKEN>?</ns:API_TOKEN>
-         <ns:clientId>?</ns:clientId>
-         <ns:name>?</ns:name>
+         <ns:API_TOKEN>TESTTOKEN</ns:API_TOKEN>
+         <ns:clientId>newGenre1</ns:clientId>
+         <ns:name>New genre</ns:name>
          <!--Optional:-->
-         <ns:description>?</ns:description>
+         <ns:description>It's a new genre</ns:description>
       </ns:addNewGenreRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/AddNewGenreRequest"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="54529ab4-1328-477e-90d9-067ef6a0cc01" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddNewMedia TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="b1d205e8-e829-41e0-bf4b-0ecb165cc373" name="AddNewMedia"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MediaBinding</con:interface><con:operation>AddNewMedia</con:operation><con:request name="AddNewMedia" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="741ad628-5f49-436c-a65a-ae85246d9009"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>Empty</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
+</soapenv:Envelope>]]></con:request><con:assertion type="Schema Compliance" id="f69f29bf-8d78-4139-b87e-14871ad276fb" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="XPath Match" id="ba78ab11-7bad-4433-a224-df2fd305f6d5" name="XPath Match"><con:configuration><path>//*:genre/*:name</path><content>New genre</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/AddNewGenreRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="13f10825-f1e5-418b-a281-3af43a6d799d" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddNewMedia TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="b2a7de55-6432-42ad-bc26-6e8b64738d76" name="AddNewMedia"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MediaBinding</con:interface><con:operation>AddNewMedia</con:operation><con:request name="AddNewMedia" id="656e5a21-f8d3-4f03-ad11-ffa55c1a406f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/MediaServiceApi/MediaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
       <ns:addNewMediaRequest>
-         <ns:API_TOKEN>?</ns:API_TOKEN>
-         <ns:clientId>?</ns:clientId>
-         <ns:name>?</ns:name>
-         <!--Optional:-->
-         <ns:description>?</ns:description>
+         <ns:API_TOKEN>TESTTOKEN</ns:API_TOKEN>
+         <ns:clientId>newMedia1</ns:clientId>
+         <ns:type>music</ns:type>
+         <ns:name>New media</ns:name>
          <ns:genres>
             <!--1 to 5 repetitions:-->
             <ns:genre>
-               <!--You have a CHOICE of the next 2 items at this level-->
-               <ns:id>?</ns:id>
-               <ns:name>?</ns:name>
+               <ns:name>action</ns:name>
+            </ns:genre>
+            <ns:genre>
+               <ns:id>5</ns:id>
             </ns:genre>
          </ns:genres>
       </ns:addNewMediaRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/AddNewMediaRequest"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="7228bd92-fabc-4529-b9c4-9c80da9c97ba" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="EditGenre TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="23405336-61a6-4a4d-8f21-d568f3effe8b" name="EditGenre"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MediaBinding</con:interface><con:operation>EditGenre</con:operation><con:request name="EditGenre" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="d399dc35-f2af-47b6-804c-451b1d395de3"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>Empty</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
+</soapenv:Envelope>]]></con:request><con:assertion type="Schema Compliance" id="044df357-a12d-4c24-b8c9-1eb9d3406653" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="XPath Match" id="5e861720-3dfd-4c5f-891c-f8ba5d5cdc01" name="XPath Match"><con:configuration><path>//*:genres[1]/*:genre/*:id</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/AddNewMediaRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="a3e18ea1-4083-425a-95f3-bef5ef05d754" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="EditGenre TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="96492258-2d11-4ffe-8c5f-75d9c4266b12" name="EditGenre"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MediaBinding</con:interface><con:operation>EditGenre</con:operation><con:request name="EditGenre" id="7335c24d-e493-4616-b047-3af93ce1afcc"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/MediaServiceApi/MediaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
       <ns:editGenreRequest>
-         <ns:API_TOKEN>?</ns:API_TOKEN>
-         <ns:clientId>?</ns:clientId>
+         <ns:API_TOKEN>TESTTOKEN</ns:API_TOKEN>
+         <ns:clientId>editGenre1</ns:clientId>
          <ns:genre>
-            <ns:genreId>?</ns:genreId>
-            <ns:name>?</ns:name>
+            <ns:genreId>3</ns:genreId>
+            <ns:name>Drama</ns:name>
             <!--Optional:-->
-            <ns:createdAt>?</ns:createdAt>
-            <!--Optional:-->
-            <ns:description>?</ns:description>
+            <ns:description>A new description for Drama</ns:description>
          </ns:genre>
       </ns:editGenreRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/EditGenreRequest"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="ca82bb7a-4c2f-46e8-acc6-d4b4e411f422" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="EditMedia TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="aa9af162-f8b9-4669-9446-5eb35af8cc94" name="EditMedia"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MediaBinding</con:interface><con:operation>EditMedia</con:operation><con:request name="EditMedia" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="24ed4e17-480d-4685-991c-049cb5580b35"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>Empty</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
+</soapenv:Envelope>]]></con:request><con:assertion type="Schema Compliance" id="73786861-9597-44eb-bbde-36d94a8d4093" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="XPath Match" id="4456f336-31e5-44fb-ac99-ecbde4353056" name="XPath Match"><con:configuration><path>//*:description</path><content>A new description for Drama</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/EditGenreRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="edf117a6-6e9a-4159-b6c0-e8732dd20211" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="EditMedia TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="1a22bc17-38ec-4b08-8144-5b1e836d54c3" name="EditMedia"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MediaBinding</con:interface><con:operation>EditMedia</con:operation><con:request name="EditMedia" id="aa6966a5-8776-44bb-9612-d1822778ff86"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/MediaServiceApi/MediaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
       <ns:editMediaRequest>
-         <ns:API_TOKEN>?</ns:API_TOKEN>
-         <ns:clientId>?</ns:clientId>
-         <ns:media type="?">
-            <ns:mediaId>?</ns:mediaId>
-            <ns:name>?</ns:name>
+         <ns:API_TOKEN>TESTTOKEN</ns:API_TOKEN>
+         <ns:clientId>editMedia1</ns:clientId>
+         <ns:media type="tv-series">
+            <ns:mediaId>4</ns:mediaId>
+            <ns:name>Indiana Jones and a TV series</ns:name>
             <ns:genres>
                <!--1 to 5 repetitions:-->
                <ns:genre>
-                  <!--You have a CHOICE of the next 2 items at this level-->
-                  <ns:id>?</ns:id>
-                  <ns:name>?</ns:name>
+                  <ns:id>1</ns:id>
                </ns:genre>
+               <ns:genre>
+                  <ns:id>2</ns:id>
+               </ns:genre>   
             </ns:genres>
-            <!--Optional:-->
-            <ns:aggregateRating>?</ns:aggregateRating>
-            <!--Optional:-->
-            <ns:description>?</ns:description>
+            <ns:description>Yet another installment of the adventurer</ns:description>
          </ns:media>
       </ns:editMediaRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/EditMediaRequest"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="66605d8a-f998-4c82-8f54-ba295d4ba37b" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetAllGenres TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="d8ea27c8-e092-43a0-8618-a79ef858ed83" name="GetAllGenres"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MediaBinding</con:interface><con:operation>GetAllGenres</con:operation><con:request name="GetAllGenres" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="e57cd7d8-93fb-4216-9719-80735501963f"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>Empty</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
+</soapenv:Envelope>]]></con:request><con:assertion type="Schema Compliance" id="9cbf32bd-3a82-4170-b1b3-4753a406c682" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="XPath Match" id="2c54cf83-3b0a-4e51-a430-c5b0ce6a2944" name="XPath Match"><con:configuration><path>//*:name</path><content>Indiana Jones and a TV series</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/EditMediaRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="b9acaa35-7bf6-4118-a089-15b6f2fd0bc1" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetAllGenres TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="7882c72f-a087-48ed-906b-494f348f62f1" name="GetAllGenres"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MediaBinding</con:interface><con:operation>GetAllGenres</con:operation><con:request name="GetAllGenres" id="ef59df77-41ec-4eb4-832c-1179d5f0a55b"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/MediaServiceApi/MediaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
       <ns:getAllGenresRequest>
-         <ns:API_TOKEN>?</ns:API_TOKEN>
+         <ns:API_TOKEN>TESTTOKEN</ns:API_TOKEN>
          <!--Optional:-->
          <ns:filters>
-            <!--Optional:-->
-            <ns:createdBefore>?</ns:createdBefore>
-            <!--Optional:-->
-            <ns:createdAfter>?</ns:createdAfter>
+            <ns:createdAfter>2016-12-16T15:08:15.853+02:00</ns:createdAfter>
          </ns:filters>
       </ns:getAllGenresRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/GetAllGenresRequest"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="c6009671-6535-4dbb-80d4-09db60604bf2" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetAllMedia TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="3a86b9ed-6508-4df3-8e4d-d41fdd4037e2" name="GetAllMedia"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MediaBinding</con:interface><con:operation>GetAllMedia</con:operation><con:request name="GetAllMedia" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="7dabf783-6cb3-48bc-8c88-c4f8c3986717"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>Empty</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
+</soapenv:Envelope>]]></con:request><con:assertion type="Schema Compliance" id="cb7a2a8e-cf9b-4a72-bf6a-36971fea9133" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="XPath Match" id="0e7cf5b6-ccd0-4cf2-836d-3cded031e974" name="XPath Match"><con:configuration><path>//*:genre[2]/*:name</path><content>Adventure</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/GetAllGenresRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="4b6e6410-ab06-425c-bccd-1f872cd241fb" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetAllMedia TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="53e0d52e-dafd-439e-838c-4006d3e8d562" name="GetAllMedia"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MediaBinding</con:interface><con:operation>GetAllMedia</con:operation><con:request name="GetAllMedia" id="2c5a2b13-2fb6-4561-a779-a56f8095884a"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/MediaServiceApi/MediaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
       <ns:getAllMediaRequest>
-         <ns:API_TOKEN>?</ns:API_TOKEN>
+         <ns:API_TOKEN>TESTTOKEN</ns:API_TOKEN>
          <!--Optional:-->
          <ns:filters>
             <!--Optional:-->
-            <ns:type>?</ns:type>
+            <ns:type>movie</ns:type>
             <!--Optional:-->
-            <ns:keywords>?</ns:keywords>
-            <!--Optional:-->
-            <ns:genres>
-               <!--1 or more repetitions:-->
-               <ns:genre>
-                  <!--You have a CHOICE of the next 2 items at this level-->
-                  <ns:id>?</ns:id>
-                  <ns:name>?</ns:name>
-               </ns:genre>
-            </ns:genres>
-            <!--Optional:-->
-            <ns:ratingLessThan>?</ns:ratingLessThan>
-            <!--Optional:-->
-            <ns:ratingMoreThan>?</ns:ratingMoreThan>
+            <ns:keywords>furious adventurer</ns:keywords>
          </ns:filters>
       </ns:getAllMediaRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/GetAllMediaRequest"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="b6281f3e-acbb-4c15-b0f6-a89b02111634" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetGenreByIdOrName TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="239553b5-2324-487b-8d38-3e878a3f69b7" name="GetGenreByIdOrName"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MediaBinding</con:interface><con:operation>GetGenreByIdOrName</con:operation><con:request name="GetGenreByIdOrName" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="37b52f53-96e5-4b8c-a667-f2d27314029d"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>Empty</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
+</soapenv:Envelope>]]></con:request><con:assertion type="Schema Compliance" id="52be1898-2abd-4e6c-a438-ebf9e2c64aa2" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="XPath Match" id="d854feec-2367-4ed0-8fd5-886d7f469502" name="XPath Match"><con:configuration><path>//*:media[1]/*:name</path><content>Fast &amp; Furious 1337</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/GetAllMediaRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="f633c897-1822-4ff5-9d10-b9bd1fe93647" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetGenreByIdOrName TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="5a0f4f91-39e6-4516-a49b-86c5af010680" name="GetGenreByIdOrName - id"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MediaBinding</con:interface><con:operation>GetGenreByIdOrName</con:operation><con:request name="GetGenreByIdOrName - id" id="f530366f-5f99-4f13-b2a2-4f642bef5b99"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/MediaServiceApi/MediaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
       <ns:getGenreByIdOrNameRequest>
-         <ns:API_TOKEN>?</ns:API_TOKEN>
+         <ns:API_TOKEN>TESTTOKEN</ns:API_TOKEN>
          <ns:genre>
-            <!--You have a CHOICE of the next 2 items at this level-->
-            <ns:id>?</ns:id>
-            <ns:name>?</ns:name>
+            <ns:id>5</ns:id>
          </ns:genre>
       </ns:getGenreByIdOrNameRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/GetGenreByIdOrNameRequest"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="b8996cec-34e8-4d8e-b223-37355a5347e5" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetMediaByGenre TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="357dc7cc-01c0-4af0-a3d4-0264c70e2b5a" name="GetMediaByGenre"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MediaBinding</con:interface><con:operation>GetMediaByGenre</con:operation><con:request name="GetMediaByGenre" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="5b1dcfbc-5e2c-4f0c-84b1-8d7ed8087902"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>Empty</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
+</soapenv:Envelope>]]></con:request><con:assertion type="Schema Compliance" id="bdf59086-f6d0-4de0-8aee-0754b038b872" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="XPath Match" id="d89246b4-e5ad-47c2-8384-7bf136c9159c" name="XPath Match"><con:configuration><path>//*:name</path><content>Classical</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/GetGenreByIdOrNameRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="GetGenreByIdOrName - name" id="badf7b60-7f04-4983-8afa-0457b82f4cc9"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MediaBinding</con:interface><con:operation>GetGenreByIdOrName</con:operation><con:request name="GetGenreByIdOrName - name" id="3f7fd86d-ec4b-4ad2-bd1b-f361d81c653b"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/MediaServiceApi/MediaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:getGenreByIdOrNameRequest>
+         <ns:API_TOKEN>TESTTOKEN</ns:API_TOKEN>
+         <ns:genre>
+            <ns:name>action</ns:name>
+         </ns:genre>
+      </ns:getGenreByIdOrNameRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="Schema Compliance" id="210b551c-d5d7-4d6f-bf02-56d3289576f7"><con:configuration/></con:assertion><con:assertion type="XPath Match" id="f821827e-4aa3-41ea-911c-d045eb4e9a9f" name="XPath Match"><con:configuration><path>//*:genreId</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="81027ba2-037d-40a6-87cc-b88233b1f62c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetMediaByGenre TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="891bbe22-3000-40b4-9f80-a223cdbe133b" name="GetMediaByGenre"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MediaBinding</con:interface><con:operation>GetMediaByGenre</con:operation><con:request name="GetMediaByGenre" id="34458f50-7b6d-4b3a-87c0-4f0bda6743c8"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/MediaServiceApi/MediaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
       <ns:getMediaByGenreRequest>
-         <ns:API_TOKEN>?</ns:API_TOKEN>
+         <ns:API_TOKEN>TESTTOKEN</ns:API_TOKEN>
          <ns:genre>
-            <!--You have a CHOICE of the next 2 items at this level-->
-            <ns:id>?</ns:id>
-            <ns:name>?</ns:name>
+            <ns:name>action</ns:name>
          </ns:genre>
       </ns:getMediaByGenreRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/GetMediaByGenreRequest"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="a5a96c75-80dd-4a1a-a514-ce91d0056834" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetMediaById TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="4549729a-c855-4f21-89c0-d6520de3128b" name="GetMediaById"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MediaBinding</con:interface><con:operation>GetMediaById</con:operation><con:request name="GetMediaById" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="4dd30f2d-6d39-486a-9497-63f70f61ee3a"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>Empty</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
+</soapenv:Envelope>]]></con:request><con:assertion type="Schema Compliance" id="6cfabee5-fc7e-422d-a499-9a178ddeee59" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="XPath Match" id="400a7822-5b0d-4f9b-aba6-76089ee88aef" name="XPath Match"><con:configuration><path>//*:media[1]/@type</path><content>other</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/GetMediaByGenreRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="9a7640bc-cc6f-4e2e-82f2-6a33bc6946bf" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetMediaById TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="3dee5682-d7da-4587-a90d-b4c4c7daf842" name="GetMediaById"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MediaBinding</con:interface><con:operation>GetMediaById</con:operation><con:request name="GetMediaById" id="15a55df1-febd-42c4-b3da-0f1055c9ce92"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/MediaServiceApi/MediaService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
       <ns:getMediaByIdRequest>
-         <ns:API_TOKEN>?</ns:API_TOKEN>
-         <ns:mediaId>?</ns:mediaId>
+         <ns:API_TOKEN>TESTTOKEN</ns:API_TOKEN>
+         <ns:mediaId>5</ns:mediaId>
       </ns:getMediaByIdRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/GetMediaByIdRequest"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:mockService id="7ae39762-6be3-45c3-bac5-c925276df27b" port="8088" path="/mockMediaBinding" name="MediaBinding MockService"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:onRequestScript>def holder = new com.eviware.soapui.support.XmlHolder( mockRequest.requestContent )
-
-context.holder = holder
-
-def token = holder["//*:API_TOKEN"]
-
-context.validToken = token == "TESTTOKEN"
-log.info(context)
-</con:onRequestScript><con:mockOperation name="AddMediaRating" id="39dbca9f-6e44-4556-9300-4f49a45bce95" interface="MediaBinding" operation="AddMediaRating"><con:settings/><con:defaultResponse>Failed response</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>requestContext.clientId = context.holder["//*:clientId"]
-if (context.validToken) {
-	return "Response 1"
-}
-</con:dispatchPath><con:response name="Response 1" id="85d0c03c-33c3-4c6f-9f0e-bf68f6ade55f" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ns:addMediaRatingResponse>
-         <ns:clientId>${clientId}</ns:clientId>
-         <ns:media type="book">
-            <ns:mediaId>3</ns:mediaId>
-            <ns:name>A great book</ns:name>
-            <ns:genres>
-               <ns:genre>
-                  <ns:name>action</ns:name>
-               </ns:genre>
-            </ns:genres>
-            <ns:aggregateRating>50.7</ns:aggregateRating>
-         </ns:media>
-      </ns:addMediaRatingResponse>
-   </soapenv:Body>
-</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/AddMediaRatingResponse"/></con:response><con:response name="Failed response" id="28624312-8b19-41d4-8b3f-d48871d5c9be" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ns:addMediaRatingResponse>
-         <ns:clientId>?</ns:clientId>
-         <ns:media type="?">
-            <ns:mediaId>?</ns:mediaId>
-            <ns:name>?</ns:name>
-            <ns:genres>
-               <!--1 to 5 repetitions:-->
-               <ns:genre>
-                  <!--You have a CHOICE of the next 2 items at this level-->
-                  <ns:id>?</ns:id>
-                  <ns:name>?</ns:name>
-               </ns:genre>
-            </ns:genres>
-            <!--Optional:-->
-            <ns:aggregateRating>?</ns:aggregateRating>
-            <!--Optional:-->
-            <ns:description>?</ns:description>
-         </ns:media>
-      </ns:addMediaRatingResponse>
-   </soapenv:Body>
-</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/AddMediaRatingResponse"/></con:response><con:dispatchConfig xsi:type="con:MockOperationQueryMatchDispatch" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:query><con:name>Media ID 3</con:name><con:query>//mediaId</con:query><con:match>3</con:match><con:response>Response 1</con:response></con:query></con:dispatchConfig></con:mockOperation><con:mockOperation name="AddNewGenre" id="8b82dc20-a862-4e3b-8f5d-cc875fe4479c" interface="MediaBinding" operation="AddNewGenre"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="50108c18-5044-4b3a-9987-7beb0a045d9f" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ns:addNewGenreResponse>
-         <ns:clientId>?</ns:clientId>
-         <ns:genre>
-            <ns:genreId>?</ns:genreId>
-            <ns:name>?</ns:name>
-            <!--Optional:-->
-            <ns:createdAt>?</ns:createdAt>
-            <!--Optional:-->
-            <ns:description>?</ns:description>
-         </ns:genre>
-      </ns:addNewGenreResponse>
-   </soapenv:Body>
-</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/AddNewGenreResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="AddNewMedia" id="7d83d742-e47c-47f4-988c-634214d60bea" interface="MediaBinding" operation="AddNewMedia"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="50c0a37e-8f41-417d-9355-acdf504d332f" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ns:addNewMediaResponse>
-         <ns:clientId>?</ns:clientId>
-         <ns:media type="?">
-            <ns:mediaId>?</ns:mediaId>
-            <ns:name>?</ns:name>
-            <ns:genres>
-               <!--1 to 5 repetitions:-->
-               <ns:genre>
-                  <!--You have a CHOICE of the next 2 items at this level-->
-                  <ns:id>?</ns:id>
-                  <ns:name>?</ns:name>
-               </ns:genre>
-            </ns:genres>
-            <!--Optional:-->
-            <ns:aggregateRating>?</ns:aggregateRating>
-            <!--Optional:-->
-            <ns:description>?</ns:description>
-         </ns:media>
-      </ns:addNewMediaResponse>
-   </soapenv:Body>
-</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/AddNewMediaResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="EditGenre" id="446eabf5-5333-4392-951f-da52cf145ea8" interface="MediaBinding" operation="EditGenre"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="8be348bc-684a-4ec2-8292-a16efdca2caf" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ns:editGenreResponse>
-         <ns:clientId>?</ns:clientId>
-         <ns:genre>
-            <ns:genreId>?</ns:genreId>
-            <ns:name>?</ns:name>
-            <!--Optional:-->
-            <ns:createdAt>?</ns:createdAt>
-            <!--Optional:-->
-            <ns:description>?</ns:description>
-         </ns:genre>
-      </ns:editGenreResponse>
-   </soapenv:Body>
-</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/EditGenreResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="EditMedia" id="32838baa-2059-41ec-ae3b-65601e2c90f9" interface="MediaBinding" operation="EditMedia"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="af424ca6-bb0e-4093-a90c-9dba1c2c313a" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ns:editMediaResponse>
-         <ns:clientId>?</ns:clientId>
-         <ns:media type="?">
-            <ns:mediaId>?</ns:mediaId>
-            <ns:name>?</ns:name>
-            <ns:genres>
-               <!--1 to 5 repetitions:-->
-               <ns:genre>
-                  <!--You have a CHOICE of the next 2 items at this level-->
-                  <ns:id>?</ns:id>
-                  <ns:name>?</ns:name>
-               </ns:genre>
-            </ns:genres>
-            <!--Optional:-->
-            <ns:aggregateRating>?</ns:aggregateRating>
-            <!--Optional:-->
-            <ns:description>?</ns:description>
-         </ns:media>
-      </ns:editMediaResponse>
-   </soapenv:Body>
-</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/EditMediaResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="GetAllGenres" id="a6817862-c0cc-4eac-a2f4-c9fd392ea5c0" interface="MediaBinding" operation="GetAllGenres"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="ff11dcfc-e579-4e09-a5a5-a48d6c481c00" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ns:getAllGenresResponse>
-         <ns:genres>
-            <!--Zero or more repetitions:-->
-            <ns:genre>
-               <ns:genreId>?</ns:genreId>
-               <ns:name>?</ns:name>
-               <!--Optional:-->
-               <ns:createdAt>?</ns:createdAt>
-               <!--Optional:-->
-               <ns:description>?</ns:description>
-            </ns:genre>
-         </ns:genres>
-      </ns:getAllGenresResponse>
-   </soapenv:Body>
-</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/GetAllGenresResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="GetAllMedia" id="037a850f-7273-4831-b968-edd951196350" interface="MediaBinding" operation="GetAllMedia"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="6590ab81-5f78-455a-b2bd-dc9f3d4b3843" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ns:getAllMediaResponse>
-         <ns:media>
-            <!--Zero or more repetitions:-->
-            <ns:media type="?">
-               <ns:mediaId>?</ns:mediaId>
-               <ns:name>?</ns:name>
-               <ns:genres>
-                  <!--1 to 5 repetitions:-->
-                  <ns:genre>
-                     <!--You have a CHOICE of the next 2 items at this level-->
-                     <ns:id>?</ns:id>
-                     <ns:name>?</ns:name>
-                  </ns:genre>
-               </ns:genres>
-               <!--Optional:-->
-               <ns:aggregateRating>?</ns:aggregateRating>
-               <!--Optional:-->
-               <ns:description>?</ns:description>
-            </ns:media>
-         </ns:media>
-      </ns:getAllMediaResponse>
-   </soapenv:Body>
-</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/GetAllMediaResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="GetGenreByIdOrName" id="f59388ff-533f-4685-8f8a-a118b230cf7f" interface="MediaBinding" operation="GetGenreByIdOrName"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="b61bbef8-25d4-4bd7-9f3c-dda5f7d11a2a" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ns:getGenreByIdOrNameResponse>
-         <ns:genre>
-            <ns:genreId>?</ns:genreId>
-            <ns:name>?</ns:name>
-            <!--Optional:-->
-            <ns:createdAt>?</ns:createdAt>
-            <!--Optional:-->
-            <ns:description>?</ns:description>
-         </ns:genre>
-      </ns:getGenreByIdOrNameResponse>
-   </soapenv:Body>
-</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/GetGenreByIdOrNameResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="GetMediaByGenre" id="8ae21841-bab1-4880-873c-3ace94de9769" interface="MediaBinding" operation="GetMediaByGenre"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="00e30453-dd52-4d26-a623-051db61d805d" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ns:getMediaByGenreResponse>
-         <ns:media>
-            <!--Zero or more repetitions:-->
-            <ns:media type="?">
-               <ns:mediaId>?</ns:mediaId>
-               <ns:name>?</ns:name>
-               <ns:genres>
-                  <!--1 to 5 repetitions:-->
-                  <ns:genre>
-                     <!--You have a CHOICE of the next 2 items at this level-->
-                     <ns:id>?</ns:id>
-                     <ns:name>?</ns:name>
-                  </ns:genre>
-               </ns:genres>
-               <!--Optional:-->
-               <ns:aggregateRating>?</ns:aggregateRating>
-               <!--Optional:-->
-               <ns:description>?</ns:description>
-            </ns:media>
-         </ns:media>
-      </ns:getMediaByGenreResponse>
-   </soapenv:Body>
-</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/GetMediaByGenreResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="GetMediaById" id="0f96babc-ede9-48b5-a494-8d094e54fc7f" interface="MediaBinding" operation="GetMediaById"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="87933b7e-b16e-49d2-9502-72223b29e9da" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <ns:getMediaByIdResponse>
-         <ns:media type="?">
-            <ns:mediaId>?</ns:mediaId>
-            <ns:name>?</ns:name>
-            <ns:genres>
-               <!--1 to 5 repetitions:-->
-               <ns:genre>
-                  <!--You have a CHOICE of the next 2 items at this level-->
-                  <ns:id>?</ns:id>
-                  <ns:name>?</ns:name>
-               </ns:genre>
-            </ns:genres>
-            <!--Optional:-->
-            <ns:aggregateRating>?</ns:aggregateRating>
-            <!--Optional:-->
-            <ns:description>?</ns:description>
-         </ns:media>
-      </ns:getMediaByIdResponse>
-   </soapenv:Body>
-</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/GetMediaByIdResponse"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>
+</soapenv:Envelope>]]></con:request><con:assertion type="Schema Compliance" id="71dd619b-9d80-4cd1-9edc-7e35b00c37b7" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="XPath Match" id="a472eb62-447f-43a4-96ae-5cc6fb08f3b6" name="XPath Match"><con:configuration><path>//*:name</path><content>Claude Debussy - Clair de Lune</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.ttu.ee/idu0075/143076/MediaService/1.0/MediaPortType/GetMediaByIdRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

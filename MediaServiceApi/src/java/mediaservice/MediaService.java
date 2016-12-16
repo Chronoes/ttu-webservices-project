@@ -6,12 +6,7 @@
 package mediaservice;
 
 import ee.ttu.idu0075._143076.mediaservice._1.*;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.PriorityQueue;
-import java.util.Queue;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import javax.jws.WebService;
 
 /**
@@ -20,47 +15,29 @@ import javax.jws.WebService;
  */
 @WebService(serviceName = "MediaService", portName = "MediaPort", endpointInterface = "ee.ttu.idu0075._143076.mediaservice._1.MediaPortType", targetNamespace = "http://www.ttu.ee/idu0075/143076/MediaService/1.0", wsdlLocation = "WEB-INF/wsdl/MediaService/project.wsdl")
 public class MediaService {
-    private final String API_TOKEN = "TESTTOKEN";
-    private final int TIMEOUT = 3 * 60;
-    private MockDatabase db = new MockDatabase();
-    private Queue<ClientIdType> clientIds = new PriorityQueue<>();
+    private final TokenType API_TOKEN = new TokenType("realToken123");
+    private final TokenType API_TEST_TOKEN = new TokenType("TESTTOKEN");
+    // Reference to current database
+    private MockDatabase db;
+    private final MockDatabase realDb = new MockDatabase();
+    private final MockDatabase testDb = new MockDatabase();
+    private final ClientManager clientManager = new ClientManager(10);
 
     public MediaService() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                int interval = TIMEOUT / 20;
-                while (!Thread.interrupted()) {
-                    try {
-                        Thread.sleep(interval);
-                    } catch (InterruptedException ex) {
-                        Logger.getLogger(MediaService.class.getName()).log(Level.SEVERE, null, ex);
-                        break;
-                    }
-                    clearLastClientId();
-                }
-            }
-        });
+        testDb.fillDatabase();
+        db = realDb;
     }
     
-    private synchronized void clearLastClientId() {
-        if (clientIds.peek().hasExpired(TIMEOUT)) {
-            clientIds.remove();
-        }
-    }
-    
-    private synchronized boolean addClientId(String token) {
-        ClientIdType t = new ClientIdType(token);
-        if (clientIds.contains(t)) {
-            throw new IllegalArgumentException("Client ID already exists");
-        }
-        clientIds.add(t);
-        return true;
-    }
-   
     private boolean validateToken(String token) {
         TokenType t = new TokenType(token);
-        return t.equals(API_TOKEN);
+        if (t.equals(API_TOKEN)) {
+            db = realDb;
+            return true;
+        } else if (t.equals(API_TEST_TOKEN)) {
+            db = testDb;
+            return true;
+        }
+        return false;
     }
     
     public ee.ttu.idu0075._143076.mediaservice._1.GetGenreByIdOrNameResponse getGenreByIdOrName(ee.ttu.idu0075._143076.mediaservice._1.GetGenreByIdOrNameRequest parameter) {
@@ -76,7 +53,7 @@ public class MediaService {
     public ee.ttu.idu0075._143076.mediaservice._1.AddNewGenreResponse addNewGenre(ee.ttu.idu0075._143076.mediaservice._1.AddNewGenreRequest parameter) {
         if (validateToken(parameter.getAPITOKEN())) {
             AddNewGenreResponse response = new AddNewGenreResponse();
-            if (addClientId(parameter.getClientId())) {
+            if (clientManager.addClientId(parameter.getClientId())) {
                 Genre genre = db.addGenre(parameter.getName(), parameter.getDescription());
                 response.setGenre(genre);
                 response.setClientId(parameter.getClientId());
@@ -89,7 +66,7 @@ public class MediaService {
     public ee.ttu.idu0075._143076.mediaservice._1.EditGenreResponse editGenre(ee.ttu.idu0075._143076.mediaservice._1.EditGenreRequest parameter) {
         if (validateToken(parameter.getAPITOKEN())) {
             EditGenreResponse response = new EditGenreResponse();
-            if (addClientId(parameter.getClientId())) {
+            if (clientManager.addClientId(parameter.getClientId())) {
                 Genre genre = db.editGenre(parameter.getGenre());
                 response.setGenre(genre);
                 response.setClientId(parameter.getClientId());
@@ -111,33 +88,84 @@ public class MediaService {
     }
 
     public ee.ttu.idu0075._143076.mediaservice._1.GetMediaByIdResponse getMediaById(ee.ttu.idu0075._143076.mediaservice._1.GetMediaByIdRequest parameter) {
-        //TODO implement this method
-        throw new UnsupportedOperationException("Not implemented yet.");
+        if (validateToken(parameter.getAPITOKEN())) {
+            GetMediaByIdResponse response = new GetMediaByIdResponse();
+            Media media = db.getMedia(parameter.getMediaId()).xmlRepresentation();
+            response.setMedia(media);
+            return response;
+        }
+        return null;
     }
 
     public ee.ttu.idu0075._143076.mediaservice._1.AddNewMediaResponse addNewMedia(ee.ttu.idu0075._143076.mediaservice._1.AddNewMediaRequest parameter) {
-        //TODO implement this method
-        throw new UnsupportedOperationException("Not implemented yet.");
+        if (validateToken(parameter.getAPITOKEN())) {
+            AddNewMediaResponse response = new AddNewMediaResponse();
+            if (clientManager.addClientId(parameter.getClientId())) {
+                Media media = db.addMedia(parameter.getType(), parameter.getName(), parameter.getDescription(), parameter.getGenres().getGenre());
+                response.setMedia(media.xmlRepresentation());
+                response.setClientId(parameter.getClientId());
+                return response;
+            }
+        }
+        return null;
     }
 
     public ee.ttu.idu0075._143076.mediaservice._1.AddMediaRatingResponse addMediaRating(ee.ttu.idu0075._143076.mediaservice._1.AddMediaRatingRequest parameter) {
-        //TODO implement this method
-        throw new UnsupportedOperationException("Not implemented yet.");
+        if (validateToken(parameter.getAPITOKEN())) {
+            AddMediaRatingResponse response = new AddMediaRatingResponse();
+            if (clientManager.addClientId(parameter.getClientId())) {
+                Media media = db.addMediaRating(parameter.getMediaId(), parameter.getRating());
+                if (media == null) {
+                    return null;
+                }
+                response.setMedia(media.xmlRepresentation());
+                response.setClientId(parameter.getClientId());
+                return response;
+            }
+        }
+        return null;
     }
 
     public ee.ttu.idu0075._143076.mediaservice._1.EditMediaResponse editMedia(ee.ttu.idu0075._143076.mediaservice._1.EditMediaRequest parameter) {
-        //TODO implement this method
-        throw new UnsupportedOperationException("Not implemented yet.");
+        if (validateToken(parameter.getAPITOKEN())) {
+            EditMediaResponse response = new EditMediaResponse();
+            if (clientManager.addClientId(parameter.getClientId())) {
+                Media media = db.editMedia(parameter.getMedia());
+                response.setMedia(media.xmlRepresentation());
+                response.setClientId(parameter.getClientId());
+                return response;
+            }
+        }
+        return null;
     }
 
     public ee.ttu.idu0075._143076.mediaservice._1.GetMediaByGenreResponse getMediaByGenre(ee.ttu.idu0075._143076.mediaservice._1.GetMediaByGenreRequest parameter) {
-        //TODO implement this method
-        throw new UnsupportedOperationException("Not implemented yet.");
+        if (validateToken(parameter.getAPITOKEN())) {
+            GetMediaByGenreResponse response = new GetMediaByGenreResponse();
+            GetMediaByGenreResponse.Media responseMedia = new GetMediaByGenreResponse.Media();
+            responseMedia.getMedia().addAll(db.getMediaByGenre(parameter.getGenre())
+                    .stream()
+                    .map(Media::xmlRepresentation)
+                    .collect(Collectors.toList()));
+            response.setMedia(responseMedia);
+            return response;
+        }
+        return null;
     }
 
     public ee.ttu.idu0075._143076.mediaservice._1.GetAllMediaResponse getAllMedia(ee.ttu.idu0075._143076.mediaservice._1.GetAllMediaRequest parameter) {
-        //TODO implement this method
-        throw new UnsupportedOperationException("Not implemented yet.");
+        if (validateToken(parameter.getAPITOKEN())) {
+            GetAllMediaResponse response = new GetAllMediaResponse();
+            GetAllMediaResponse.Media mediaParam = new GetAllMediaResponse.Media();
+            mediaParam.getMedia().addAll(db.getMediaList(parameter.getFilters())
+                    .stream()
+                    .map(Media::xmlRepresentation)
+                    .collect(Collectors.toList())
+            );
+            response.setMedia(mediaParam);
+            return response;
+        }
+        return null;
     }
     
 }

@@ -168,6 +168,7 @@
             <xs:sequence>
                 <xs:element minOccurs="1" maxOccurs="1" name="API_TOKEN" type="tns:TokenType" />
                 <xs:element minOccurs="1" maxOccurs="1" name="clientId" type="tns:TokenType" />
+                <xs:element minOccurs="1" maxOccurs="1" name="type" type="tns:TypeOfMediaType" />
                 <xs:element minOccurs="1" maxOccurs="1" name="name" type="xs:string" />
                 <xs:element minOccurs="0" maxOccurs="1" name="description" type="xs:string" />
                 <xs:element minOccurs="1" maxOccurs="1" name="genres">

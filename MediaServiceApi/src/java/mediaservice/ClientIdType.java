@@ -21,12 +21,12 @@ public class ClientIdType extends TokenType implements Comparable<ClientIdType> 
     
     @Override
     public int compareTo(ClientIdType o) {
-        return -createdAt.compareTo(o.createdAt);
+        return createdAt.compareTo(o.createdAt);
     }
     
     public boolean hasExpired(int timeout) {
         Calendar current = Calendar.getInstance();
-        current.add(Calendar.MINUTE, -timeout);
+        current.add(Calendar.SECOND, -timeout);
         return createdAt.before(current);
     }
 }
