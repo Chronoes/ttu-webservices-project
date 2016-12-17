@@ -1,7 +1,12 @@
 swagger: '2.0'
 info:
   title: MediaService API
-  description: Good things happen here
+  description: |
+    The MediaService API handles relations between Genre and Media.
+    Each Media can be associated with multiple Genres.
+
+    With this API, new genres and media can be added or edited.
+    The API also provides searching for both objects with various filters.
   version: "1.0.0"
 host: 'localhost:8080'
 schemes:
@@ -10,7 +15,7 @@ basePath: /MediaServiceApi/webresources
 produces:
   - application/json
   - text/html
-security: 
+security:
   - token: []
 paths:
   /genre:
@@ -48,7 +53,7 @@ paths:
     post:
       summary: Add new Genre
       description: |
-        This Genre endpoint creates a new genre when given 
+        This Genre endpoint creates a new genre when given
         appopriate parameters. createdAt is not used on request.
       parameters:
         - $ref: '#/parameters/clientId'
@@ -81,7 +86,7 @@ paths:
     put:
       summary: Edit Genre
       description: |
-        This Genre endpoint edits an existing genre when given 
+        This Genre endpoint edits an existing genre when given
         appopriate parameters. createdAt is not used on request.
       parameters:
         - $ref: '#/parameters/clientId'
@@ -201,7 +206,7 @@ paths:
     post:
       summary: Add new Media
       description: |
-        This Media endpoint creates a new media when given 
+        This Media endpoint creates a new media when given
         appopriate parameters.
       parameters:
         - $ref: '#/parameters/clientId'
@@ -240,7 +245,7 @@ paths:
     put:
       summary: Edit Media
       description: |
-        This Media endpoint edits an existing media when given 
+        This Media endpoint edits an existing media when given
         appopriate parameters.
       parameters:
         - $ref: '#/parameters/clientId'
@@ -276,9 +281,64 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+  /media/rating:
+    post:
+      summary: Add Media rating
+      description: |
+        This Media endpoint adds a rating to media.
+      parameters:
+        - $ref: '#/parameters/clientId'
+        - name: mediaRating
+          in: body
+          required: true
+          description: Media ID accompanied with Rating
+          schema:
+            type: object
+            required:
+              - mediaId
+              - rating
+            properties:
+              mediaId:
+                type: integer
+                description: ID of a media object
+              rating:
+                description: The desired Rating to give to Media
+                type: number
+                format: Rating
+      tags:
+        - Media
+        - Modify
+      responses:
+        200:
+          description: Media object with rating added
+          schema:
+            type: object
+            properties:
+              clientId:
+                type: string
+              media:
+                $ref: '#/definitions/Media'
+          examples:
+            json:
+              clientId: keo332u29us
+              media:
+                mediaId: 82
+                type: BOOK
+                name: Dubstep
+                description: null
+                genres:
+                  - id: 2
+                    name: null
+                  - id: 5
+                    name: null
+                aggregateRating: 66.6
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
   /media/list:
     get:
-      summary: Get all Genres
+      summary: Get all Media
       description: |
         This endpoint provides the ability to search for all Media
         with optional filters, such as querying by type, keywords etc.
@@ -297,14 +357,14 @@ paths:
             - OTHER
         - name: genreId
           in: query
-          description: Filter Media by Genre IDs 
+          description: Filter Media by Genre IDs
           required: false
           type: array
           items:
             type: integer
         - name: genreName
           in: query
-          description: Filter Media by Genre names 
+          description: Filter Media by Genre names
           required: false
           type: array
           items:
@@ -475,7 +535,7 @@ definitions:
         $ref: '#/definitions/MediaGenres'
       aggregateRating:
         $ref: '#/definitions/Rating'
-      
+
   Error:
     description: Error on failure
 securityDefinitions:
