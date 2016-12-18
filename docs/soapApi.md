@@ -16,7 +16,7 @@ Operations that provide the ability to search for Genre or Media are prefixed wi
 Any modification such as adding or editing a Genre or Media are prefixed with _Add_ or _Edit_.
 In addition, a client-generated random token (`clientId`) must be provided to operations that modify data to ensure no duplicate changes go through.
 
-Elements marked with a red asterisk <span style="color: red;">*</span> are required.
+Elements marked with an asterisk **\*** are required.
 
 ----
 ## Genre
@@ -26,14 +26,14 @@ This Genre operation returns a genre when given an ID or name of genre.
 At least one of these elements is required.
 
 #### Input
-* `API_TOKEN` <span style="color: red;">*</span> - [_TokenType_](#TokenType) element, provided by API owner
-* `genre` <span style="color: red;">*</span> - [_GenreShortType_](#GenreShortType) element
+* `API_TOKEN` **\*** - [_TokenType_](#tokentype) element, provided by API owner
+* `genre` **\*** - [_GenreShortType_](#genreshorttype) element
 
 #### Output
-* `genre` <span style="color: red;">*</span> - [_GenreType_](#GenreType) element
+* `genre` **\*** - [_GenreType_](#genretype) element
 
 ###### Example request
-```
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
@@ -48,7 +48,7 @@ At least one of these elements is required.
 ```
 
 ###### Example response
-```
+```xml
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
    <S:Body>
       <getGenreByIdOrNameResponse xmlns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
@@ -69,17 +69,17 @@ This Genre operation creates a new genre when given appopriate parameters.
 createdAt is not used on request.
 
 #### Input
-* `API_TOKEN` <span style="color: red;">*</span> - [_TokenType_](#TokenType) element, provided by API owner
-* `clientId` <span style="color: red;">*</span> - [_TokenType_](#TokenType) element, provided by client
-* `name` <span style="color: red;">*</span> - _string_ element, name of Genre
+* `API_TOKEN` **\*** - [_TokenType_](#tokentype) element, provided by API owner
+* `clientId` **\*** - [_TokenType_](#tokentype) element, provided by client
+* `name` **\*** - _string_ element, name of Genre
 * `description` - _string_ element, description of Genre
 
 #### Output
-* `clientId` <span style="color: red;">*</span> - [_TokenType_](#TokenType) element, provided by client
-* `genre` <span style="color: red;">*</span> - [_GenreType_](#GenreType) element
+* `clientId` **\*** - [_TokenType_](#tokentype) element, provided by client
+* `genre` **\*** - [_GenreType_](#genretype) element
 
 ###### Example request
-```
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
@@ -94,7 +94,7 @@ createdAt is not used on request.
 ```
 
 ###### Example response
-```
+```xml
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
    <S:Body>
       <addNewGenreResponse xmlns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
@@ -116,17 +116,17 @@ This Genre operation edits an existing genre when given appopriate parameters.
 createdAt is not used on request.
 
 #### Input
-* `API_TOKEN` <span style="color: red;">*</span> - [_TokenType_](#TokenType) element, provided by API owner
-* `clientId` <span style="color: red;">*</span> - [_TokenType_](#TokenType) element, provided by client
-* `genre` <span style="color: red;">*</span> - [_GenreType_](#GenreType) element
+* `API_TOKEN` **\*** - [_TokenType_](#tokentype) element, provided by API owner
+* `clientId` **\*** - [_TokenType_](#tokentype) element, provided by client
+* `genre` **\*** - [_GenreType_](#genretype) element
 
 
 #### Output
-* `clientId` <span style="color: red;">*</span> - [_TokenType_](#TokenType) element, provided by client
-* `genre` <span style="color: red;">*</span> - [_GenreType_](#GenreType) element
+* `clientId` **\*** - [_TokenType_](#tokentype) element, provided by client
+* `genre` **\*** - [_GenreType_](#genretype) element
 
 ###### Example request
-```
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
@@ -144,7 +144,7 @@ createdAt is not used on request.
 ```
 
 ###### Example response
-```
+```xml
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
    <S:Body>
       <editGenreResponse xmlns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
@@ -165,18 +165,18 @@ createdAt is not used on request.
 This operation provides the ability to search for all Genres with optional filters, such as querying by creation date.
 
 #### Input
-* `API_TOKEN` <span style="color: red;">*</span> - [_TokenType_](#TokenType) element, provided by API owner
+* `API_TOKEN` **\*** - [_TokenType_](#tokentype) element, provided by API owner
 * `filters` - _sequence_ element
   * `createdBefore` (0..1) - _dateTime_ element, filter Genres created before this datetime.
   * `createdAfter` (0..1) - _dateTime_ element, filter Genres created after this datetime.
 
 
 #### Output
-* `genres` <span style="color: red;">*</span> - _sequence_ element
-  * `genre` (0..) <span style="color: red;">*</span> - [_GenreType_](#GenreType) element
+* `genres` **\*** - _sequence_ element
+  * `genre` (0..) **\*** - [_GenreType_](#genretype) element
 
 ###### Example request
-```
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
@@ -191,7 +191,7 @@ This operation provides the ability to search for all Genres with optional filte
 ```
 
 ###### Example response
-```
+```xml
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
    <S:Body>
       <getAllGenresResponse xmlns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
@@ -218,17 +218,17 @@ This operation provides the ability to search for all Genres with optional filte
 ## Media
 
 ### GetMediaById
-This Media endpoint returns a media when given an unique ID.
+This Media operation returns a media when given an unique ID.
 
 #### Input
-* `API_TOKEN` <span style="color: red;">*</span> - [_TokenType_](#TokenType) element, provided by API owner
-* `mediaId` <span style="color: red;">*</span> - _integer_ element, unique ID of media
+* `API_TOKEN` **\*** - [_TokenType_](#tokentype) element, provided by API owner
+* `mediaId` **\*** - _integer_ element, unique ID of media
 
 #### Output
-* `media` <span style="color: red;">*</span> - [_MediaType_](#MediaType) element
+* `media` **\*** - [_MediaType_](#mediatype) element
 
 ###### Example request
-```
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
@@ -241,7 +241,7 @@ This Media endpoint returns a media when given an unique ID.
 ```
 
 ###### Example response
-```
+```xml
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
    <S:Body>
       <getMediaByIdResponse xmlns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
@@ -265,20 +265,20 @@ This Media endpoint returns a media when given an unique ID.
 This Media operation creates a new media when given appopriate parameters.
 
 #### Input
-* `API_TOKEN` <span style="color: red;">*</span> - [_TokenType_](#TokenType) element, provided by API owner
-* `clientId` <span style="color: red;">*</span> - [_TokenType_](#TokenType) element, provided by client
-* `type` <span style="color: red;">*</span> - [_TypeOfMediaType_](#TypeOfMediaType) element, type of Media
-* `name` <span style="color: red;">*</span> - _string_ element, name of Media
+* `API_TOKEN` **\*** - [_TokenType_](#tokentype) element, provided by API owner
+* `clientId` **\*** - [_TokenType_](#tokentype) element, provided by client
+* `type` **\*** - [_TypeOfMediaType_](#typeofmediatype) element, type of Media
+* `name` **\*** - _string_ element, name of Media
 * `description` - _string_ element, description of Media
-* `genres` <span style="color: red;">*</span> - _sequence_ element
-  * `genre` (1..5) <span style="color: red;">*</span> - [_GenreShortType_](#GenreShortType) element, genre of media
+* `genres` **\*** - _sequence_ element
+  * `genre` (1..5) **\*** - [_GenreShortType_](#genreshorttype) element, genre of media
 
 #### Output
-* `clientId` <span style="color: red;">*</span> - [_TokenType_](#TokenType) element, provided by client
-* `media` <span style="color: red;">*</span> - [_MediaType_](#MediaType) element
+* `clientId` **\*** - [_TokenType_](#tokentype) element, provided by client
+* `media` **\*** - [_MediaType_](#mediatype) element
 
 ###### Example request
-```
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
@@ -302,7 +302,7 @@ This Media operation creates a new media when given appopriate parameters.
 ```
 
 ###### Example response
-```
+```xml
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
    <S:Body>
       <addNewMediaResponse xmlns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
@@ -326,20 +326,20 @@ This Media operation creates a new media when given appopriate parameters.
 
 ----
 ### AddMediaRating
-This Media endpoint adds a rating to media.
+This Media operation adds a rating to media.
 
 #### Input
-* `API_TOKEN` <span style="color: red;">*</span> - [_TokenType_](#TokenType) element, provided by API owner
-* `clientId` <span style="color: red;">*</span> - [_TokenType_](#TokenType) element, provided by client
-* `mediaId` <span style="color: red;">*</span> - [_TypeOfMediaType_](#TypeOfMediaType) element, ID of Media
-* `rating` <span style="color: red;">*</span> - [_RatingType_](#RatingType) element, rating to give to specified Media
+* `API_TOKEN` **\*** - [_TokenType_](#tokentype) element, provided by API owner
+* `clientId` **\*** - [_TokenType_](#tokentype) element, provided by client
+* `mediaId` **\*** - [_TypeOfMediaType_](#typeofmediatype) element, ID of Media
+* `rating` **\*** - [_RatingType_](#ratingtype) element, rating to give to specified Media
 
 #### Output
-* `clientId` <span style="color: red;">*</span> - [_TokenType_](#TokenType) element, provided by client
-* `media` <span style="color: red;">*</span> - [_MediaType_](#MediaType) element, `rating` added to `aggregateRating`
+* `clientId` **\*** - [_TokenType_](#tokentype) element, provided by client
+* `media` **\*** - [_MediaType_](#mediatype) element, `rating` added to `aggregateRating`
 
 ###### Example request
-```
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
@@ -354,7 +354,7 @@ This Media endpoint adds a rating to media.
 ```
 
 ###### Example response
-```
+```xml
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
    <S:Body>
       <addMediaRatingResponse xmlns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
@@ -380,16 +380,16 @@ This Media endpoint adds a rating to media.
 This Media operation edits an existing media when given appopriate parameters.
 
 #### Input
-* `API_TOKEN` <span style="color: red;">*</span> - [_TokenType_](#TokenType) element, provided by API owner
-* `clientId` <span style="color: red;">*</span> - [_TokenType_](#TokenType) element, provided by client
-* `media` <span style="color: red;">*</span> - [_MediaType_](#MediaType) element
+* `API_TOKEN` **\*** - [_TokenType_](#tokentype) element, provided by API owner
+* `clientId` **\*** - [_TokenType_](#tokentype) element, provided by client
+* `media` **\*** - [_MediaType_](#mediatype) element
 
 #### Output
-* `clientId` <span style="color: red;">*</span> - [_TokenType_](#TokenType) element, provided by client
-* `media` <span style="color: red;">*</span> - [_MediaType_](#MediaType) element
+* `clientId` **\*** - [_TokenType_](#tokentype) element, provided by client
+* `media` **\*** - [_MediaType_](#mediatype) element
 
 ###### Example request
-```
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
@@ -416,7 +416,7 @@ This Media operation edits an existing media when given appopriate parameters.
 ```
 
 ###### Example response
-```
+```xml
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
    <S:Body>
       <editMediaResponse xmlns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
@@ -444,15 +444,15 @@ This Media operation edits an existing media when given appopriate parameters.
 This operation provides the ability to search for all Media associated by a Genre.
 
 #### Input
-* `API_TOKEN` <span style="color: red;">*</span> - [_TokenType_](#TokenType) element, provided by API owner
-* `genre` <span style="color: red;">*</span> - [_GenreShortType_](#GenreShortType) element
+* `API_TOKEN` **\*** - [_TokenType_](#tokentype) element, provided by API owner
+* `genre` **\*** - [_GenreShortType_](#genreshorttype) element
 
 #### Output
-* `media` <span style="color: red;">*</span> - _sequence_ element
-  * `media` (0..) <span style="color: red;">*</span> - [_MediaType_](#MediaType) element
+* `media` **\*** - _sequence_ element
+  * `media` (0..) **\*** - [_MediaType_](#mediatype) element
 
 ###### Example request
-```
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
@@ -467,7 +467,7 @@ This operation provides the ability to search for all Media associated by a Genr
 ```
 
 ###### Example response
-```
+```xml
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
    <S:Body>
       <getMediaByGenreResponse xmlns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
@@ -530,21 +530,21 @@ This operation provides the ability to search for all Media associated by a Genr
 This operation provides the ability to search for all Media associated by a Genre.
 
 #### Input
-* `API_TOKEN` <span style="color: red;">*</span> - [_TokenType_](#TokenType) element, provided by API owner
+* `API_TOKEN` **\*** - [_TokenType_](#tokentype) element, provided by API owner
 * `filters` - _sequence_ element
-  * `type` (0..1) - [_TypeOfMediaType_](#TypeOfMediaType) element, filter Media by type
+  * `type` (0..1) - [_TypeOfMediaType_](#typeofmediatype) element, filter Media by type
   * `keywords` (0..1) - _string_ element, filter Media by keywords separated by space (searches from name and description of Media).
   * `genres` (0..1) - _sequence_ element, filter Media by genres
-    * `genre` (1..) <span style="color: red;">*</span> - [_GenreShortType_](#GenreShortType) element, genre of media
-  * `ratingLessThan` (0..1) - [_RatingType_](#RatingType) element, filter Media by ratings lower than this
-  * `ratingMoreThan` (0..1) - [_RatingType_](#RatingType) element, filter Media by ratings higher than this
+    * `genre` (1..) **\*** - [_GenreShortType_](#genreshorttype) element, genre of media
+  * `ratingLessThan` (0..1) - [_RatingType_](#ratingtype) element, filter Media by ratings lower than this
+  * `ratingMoreThan` (0..1) - [_RatingType_](#ratingtype) element, filter Media by ratings higher than this
 
 #### Output
-* `media` <span style="color: red;">*</span> - _sequence_ element
-  * `media` (0..) <span style="color: red;">*</span> - [_MediaType_](#MediaType) element
+* `media` **\*** - _sequence_ element
+  * `media` (0..) **\*** - [_MediaType_](#mediatype) element
 
 ###### Example request
-```
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
    <soapenv:Header/>
    <soapenv:Body>
@@ -560,7 +560,7 @@ This operation provides the ability to search for all Media associated by a Genr
 ```
 
 ###### Example response
-```
+```xml
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
    <S:Body>
       <getAllMediaResponse xmlns="http://www.ttu.ee/idu0075/143076/MediaService/1.0">
@@ -583,3 +583,61 @@ This operation provides the ability to search for all Media associated by a Genr
 ```
 
 ----
+# Types
+Description of parameters of types
+
+## TokenType
+Token type used for such elements like `API_TOKEN` and `clientId`
+
+_string_ type
+* pattern `^[A-Za-z0-9]{8,16}$`
+
+## TypeOfMediaType
+An enumeration of types that can be associated with [Media](#mediatype)
+
+_string enumeration_ type
+
+##### Enumeration
+* book
+* movie
+* music
+* tv-series
+* other
+
+## RatingType
+Rating type used in [Media](#mediatype)
+
+_decimal_ type
+* fraction digits - `1`
+* lowest value - `0.0`
+* highest value - `100.0`
+
+## GenreShortType
+A short type of [Genre](#genretype), used to associate them with [Media](#mediatype) or for searching
+
+_sequence_ type
+* `id` - _integer_ element, ID of [Genre](#genretype)
+* `name` - _string_ element, case insensitive name of [Genre](#genretype)
+
+## GenreType
+Main type used for Genres
+
+_sequence_ type
+* `genreId` **\*** - _integer_ element, ID of Genre
+* `name` **\*** - _string_ element, name of Genre
+* `description` - _string_ element, description of Genre
+* `createdAt` - _dateTime_ element, creation date of Genre
+
+## MediaType
+Main type used for Media
+
+##### Attributes
+* `type` **\*** - [TypeOfMediaType](#typeofmediatype) element, the type of Media
+
+_sequence_ type
+* `mediaId` **\*** - _integer_ element, ID of Media
+* `name` **\*** - _string_ element, name of Media
+* `genres` **\*** - _sequence_ element, filter Media by genres
+  * `genre` (1..5) **\*** - [_GenreShortType_](#genreshorttype) element, genre of Media
+* `aggregateRating` - [RatingType](#ratingtype) element, aggregated rating of Media
+* `description` - _string_ element, description of Media

@@ -5,7 +5,7 @@
 [**WSDL**](project.wsdl)
 
 ## API
-API is coded in Java, under Netbeans 8.2 using Glassfish server.
+[API](MediaServiceApi) is coded in Java, under Netbeans 8.2 using Glassfish server.
 
 ## Documentation
 [REST API](docs/rest-html/index.html) is done using Swagger.
