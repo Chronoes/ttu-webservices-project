@@ -20,7 +20,7 @@ public class MediaService {
     private static final TokenType API_TEST_TOKEN = new TokenType("TESTTOKEN");
     // Reference to current database
     private MockDatabase db;
-    private static final MockDatabase realDb = new MockDatabase();
+    private static final MockDatabase realDb = new MockDatabase().fillDatabase();
     private static final MockDatabase testDb = new MockDatabase().fillDatabase();
     private static final ClientManager clientManager = new ClientManager(10);
 
