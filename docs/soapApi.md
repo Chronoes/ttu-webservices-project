@@ -16,7 +16,7 @@ Operations that provide the ability to search for Genre or Media are prefixed wi
 Any modification such as adding or editing a Genre or Media are prefixed with _Add_ or _Edit_.
 In addition, a client-generated random token (`clientId`) must be provided to operations that modify data to ensure no duplicate changes go through.
 
-Elements marked with an asterisk **\*** are required.
+Elements marked with an asterisk ***** are required.
 
 ----
 ## Genre
@@ -26,11 +26,11 @@ This Genre operation returns a genre when given an ID or name of genre.
 At least one of these elements is required.
 
 #### Input
-* `API_TOKEN` **\*** - [_TokenType_](#tokentype) element, provided by API owner
-* `genre` **\*** - [_GenreShortType_](#genreshorttype) element
+* `API_TOKEN` ***** - [_TokenType_](#tokentype) element, provided by API owner
+* `genre` ***** - [_GenreShortType_](#genreshorttype) element
 
 #### Output
-* `genre` **\*** - [_GenreType_](#genretype) element
+* `genre` ***** - [_GenreType_](#genretype) element
 
 ###### Example request
 ```xml
@@ -69,14 +69,14 @@ This Genre operation creates a new genre when given appopriate parameters.
 createdAt is not used on request.
 
 #### Input
-* `API_TOKEN` **\*** - [_TokenType_](#tokentype) element, provided by API owner
-* `clientId` **\*** - [_TokenType_](#tokentype) element, provided by client
-* `name` **\*** - _string_ element, name of Genre
+* `API_TOKEN` ***** - [_TokenType_](#tokentype) element, provided by API owner
+* `clientId` ***** - [_TokenType_](#tokentype) element, provided by client
+* `name` ***** - _string_ element, name of Genre
 * `description` - _string_ element, description of Genre
 
 #### Output
-* `clientId` **\*** - [_TokenType_](#tokentype) element, provided by client
-* `genre` **\*** - [_GenreType_](#genretype) element
+* `clientId` ***** - [_TokenType_](#tokentype) element, provided by client
+* `genre` ***** - [_GenreType_](#genretype) element
 
 ###### Example request
 ```xml
@@ -116,14 +116,14 @@ This Genre operation edits an existing genre when given appopriate parameters.
 createdAt is not used on request.
 
 #### Input
-* `API_TOKEN` **\*** - [_TokenType_](#tokentype) element, provided by API owner
-* `clientId` **\*** - [_TokenType_](#tokentype) element, provided by client
-* `genre` **\*** - [_GenreType_](#genretype) element
+* `API_TOKEN` ***** - [_TokenType_](#tokentype) element, provided by API owner
+* `clientId` ***** - [_TokenType_](#tokentype) element, provided by client
+* `genre` ***** - [_GenreType_](#genretype) element
 
 
 #### Output
-* `clientId` **\*** - [_TokenType_](#tokentype) element, provided by client
-* `genre` **\*** - [_GenreType_](#genretype) element
+* `clientId` ***** - [_TokenType_](#tokentype) element, provided by client
+* `genre` ***** - [_GenreType_](#genretype) element
 
 ###### Example request
 ```xml
@@ -165,15 +165,15 @@ createdAt is not used on request.
 This operation provides the ability to search for all Genres with optional filters, such as querying by creation date.
 
 #### Input
-* `API_TOKEN` **\*** - [_TokenType_](#tokentype) element, provided by API owner
+* `API_TOKEN` ***** - [_TokenType_](#tokentype) element, provided by API owner
 * `filters` - _sequence_ element
   * `createdBefore` (0..1) - _dateTime_ element, filter Genres created before this datetime.
   * `createdAfter` (0..1) - _dateTime_ element, filter Genres created after this datetime.
 
 
 #### Output
-* `genres` **\*** - _sequence_ element
-  * `genre` (0..) **\*** - [_GenreType_](#genretype) element
+* `genres` ***** - _sequence_ element
+  * `genre` (0..) ***** - [_GenreType_](#genretype) element
 
 ###### Example request
 ```xml
@@ -221,11 +221,11 @@ This operation provides the ability to search for all Genres with optional filte
 This Media operation returns a media when given an unique ID.
 
 #### Input
-* `API_TOKEN` **\*** - [_TokenType_](#tokentype) element, provided by API owner
-* `mediaId` **\*** - _integer_ element, unique ID of media
+* `API_TOKEN` ***** - [_TokenType_](#tokentype) element, provided by API owner
+* `mediaId` ***** - _integer_ element, unique ID of media
 
 #### Output
-* `media` **\*** - [_MediaType_](#mediatype) element
+* `media` ***** - [_MediaType_](#mediatype) element
 
 ###### Example request
 ```xml
@@ -265,17 +265,17 @@ This Media operation returns a media when given an unique ID.
 This Media operation creates a new media when given appopriate parameters.
 
 #### Input
-* `API_TOKEN` **\*** - [_TokenType_](#tokentype) element, provided by API owner
-* `clientId` **\*** - [_TokenType_](#tokentype) element, provided by client
-* `type` **\*** - [_TypeOfMediaType_](#typeofmediatype) element, type of Media
-* `name` **\*** - _string_ element, name of Media
+* `API_TOKEN` ***** - [_TokenType_](#tokentype) element, provided by API owner
+* `clientId` ***** - [_TokenType_](#tokentype) element, provided by client
+* `type` ***** - [_TypeOfMediaType_](#typeofmediatype) element, type of Media
+* `name` ***** - _string_ element, name of Media
 * `description` - _string_ element, description of Media
-* `genres` **\*** - _sequence_ element
-  * `genre` (1..5) **\*** - [_GenreShortType_](#genreshorttype) element, genre of media
+* `genres` ***** - _sequence_ element
+  * `genre` (1..5) ***** - [_GenreShortType_](#genreshorttype) element, genre of media
 
 #### Output
-* `clientId` **\*** - [_TokenType_](#tokentype) element, provided by client
-* `media` **\*** - [_MediaType_](#mediatype) element
+* `clientId` ***** - [_TokenType_](#tokentype) element, provided by client
+* `media` ***** - [_MediaType_](#mediatype) element
 
 ###### Example request
 ```xml
@@ -329,14 +329,14 @@ This Media operation creates a new media when given appopriate parameters.
 This Media operation adds a rating to media.
 
 #### Input
-* `API_TOKEN` **\*** - [_TokenType_](#tokentype) element, provided by API owner
-* `clientId` **\*** - [_TokenType_](#tokentype) element, provided by client
-* `mediaId` **\*** - [_TypeOfMediaType_](#typeofmediatype) element, ID of Media
-* `rating` **\*** - [_RatingType_](#ratingtype) element, rating to give to specified Media
+* `API_TOKEN` ***** - [_TokenType_](#tokentype) element, provided by API owner
+* `clientId` ***** - [_TokenType_](#tokentype) element, provided by client
+* `mediaId` ***** - [_TypeOfMediaType_](#typeofmediatype) element, ID of Media
+* `rating` ***** - [_RatingType_](#ratingtype) element, rating to give to specified Media
 
 #### Output
-* `clientId` **\*** - [_TokenType_](#tokentype) element, provided by client
-* `media` **\*** - [_MediaType_](#mediatype) element, `rating` added to `aggregateRating`
+* `clientId` ***** - [_TokenType_](#tokentype) element, provided by client
+* `media` ***** - [_MediaType_](#mediatype) element, `rating` added to `aggregateRating`
 
 ###### Example request
 ```xml
@@ -380,13 +380,13 @@ This Media operation adds a rating to media.
 This Media operation edits an existing media when given appopriate parameters.
 
 #### Input
-* `API_TOKEN` **\*** - [_TokenType_](#tokentype) element, provided by API owner
-* `clientId` **\*** - [_TokenType_](#tokentype) element, provided by client
-* `media` **\*** - [_MediaType_](#mediatype) element
+* `API_TOKEN` ***** - [_TokenType_](#tokentype) element, provided by API owner
+* `clientId` ***** - [_TokenType_](#tokentype) element, provided by client
+* `media` ***** - [_MediaType_](#mediatype) element
 
 #### Output
-* `clientId` **\*** - [_TokenType_](#tokentype) element, provided by client
-* `media` **\*** - [_MediaType_](#mediatype) element
+* `clientId` ***** - [_TokenType_](#tokentype) element, provided by client
+* `media` ***** - [_MediaType_](#mediatype) element
 
 ###### Example request
 ```xml
@@ -444,12 +444,12 @@ This Media operation edits an existing media when given appopriate parameters.
 This operation provides the ability to search for all Media associated by a Genre.
 
 #### Input
-* `API_TOKEN` **\*** - [_TokenType_](#tokentype) element, provided by API owner
-* `genre` **\*** - [_GenreShortType_](#genreshorttype) element
+* `API_TOKEN` ***** - [_TokenType_](#tokentype) element, provided by API owner
+* `genre` ***** - [_GenreShortType_](#genreshorttype) element
 
 #### Output
-* `media` **\*** - _sequence_ element
-  * `media` (0..) **\*** - [_MediaType_](#mediatype) element
+* `media` ***** - _sequence_ element
+  * `media` (0..) ***** - [_MediaType_](#mediatype) element
 
 ###### Example request
 ```xml
@@ -530,18 +530,18 @@ This operation provides the ability to search for all Media associated by a Genr
 This operation provides the ability to search for all Media associated by a Genre.
 
 #### Input
-* `API_TOKEN` **\*** - [_TokenType_](#tokentype) element, provided by API owner
+* `API_TOKEN` ***** - [_TokenType_](#tokentype) element, provided by API owner
 * `filters` - _sequence_ element
   * `type` (0..1) - [_TypeOfMediaType_](#typeofmediatype) element, filter Media by type
   * `keywords` (0..1) - _string_ element, filter Media by keywords separated by space (searches from name and description of Media).
   * `genres` (0..1) - _sequence_ element, filter Media by genres
-    * `genre` (1..) **\*** - [_GenreShortType_](#genreshorttype) element, genre of media
+    * `genre` (1..) ***** - [_GenreShortType_](#genreshorttype) element, genre of media
   * `ratingLessThan` (0..1) - [_RatingType_](#ratingtype) element, filter Media by ratings lower than this
   * `ratingMoreThan` (0..1) - [_RatingType_](#ratingtype) element, filter Media by ratings higher than this
 
 #### Output
-* `media` **\*** - _sequence_ element
-  * `media` (0..) **\*** - [_MediaType_](#mediatype) element
+* `media` ***** - _sequence_ element
+  * `media` (0..) ***** - [_MediaType_](#mediatype) element
 
 ###### Example request
 ```xml
@@ -623,8 +623,8 @@ _sequence_ type
 Main type used for Genres
 
 _sequence_ type
-* `genreId` **\*** - _integer_ element, ID of Genre
-* `name` **\*** - _string_ element, name of Genre
+* `genreId` ***** - _integer_ element, ID of Genre
+* `name` ***** - _string_ element, name of Genre
 * `description` - _string_ element, description of Genre
 * `createdAt` - _dateTime_ element, creation date of Genre
 
@@ -632,12 +632,12 @@ _sequence_ type
 Main type used for Media
 
 ##### Attributes
-* `type` **\*** - [TypeOfMediaType](#typeofmediatype) element, the type of Media
+* `type` ***** - [TypeOfMediaType](#typeofmediatype) element, the type of Media
 
 _sequence_ type
-* `mediaId` **\*** - _integer_ element, ID of Media
-* `name` **\*** - _string_ element, name of Media
-* `genres` **\*** - _sequence_ element, filter Media by genres
-  * `genre` (1..5) **\*** - [_GenreShortType_](#genreshorttype) element, genre of Media
+* `mediaId` ***** - _integer_ element, ID of Media
+* `name` ***** - _string_ element, name of Media
+* `genres` ***** - _sequence_ element, filter Media by genres
+  * `genre` (1..5) ***** - [_GenreShortType_](#genreshorttype) element, genre of Media
 * `aggregateRating` - [RatingType](#ratingtype) element, aggregated rating of Media
 * `description` - _string_ element, description of Media
